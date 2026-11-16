@@ -43,24 +43,6 @@
 - **路径**：返回绝对路径，不只说"已生成"
 - **校验**：生成 docx/xlsx/pdf 后跑对应 skill 的校验脚本
 
-## 包含的 skill
-
-### 基础骨架
-- `skills/kanban/` — 文档任务 / 行动项跟踪
-- `skills/skill-maker/` — 自定义文档模板
-
-### Word & Excel
-- `skills/docx/` — Word 创建/读取/编辑/模板/审阅
-- `skills/xlsx/` — Excel 创建/读取/编辑 + CSV
-
-### PDF
-- `skills/pdf/` — PDF 创建/读取/合并/填表/加密
-- `skills/pdf-text-extraction/` — 批量 PDF→文本 + 分诊
-
-### 会议 & 行动项
-- `skills/meeting-action-items/` — 会议笔记 → 决议/行动/ticket
-- `skills/document-to-action-items/` — 文档抽取带引用的责任/截止/任务
-
 ## 已知缺口
 
 - **OCR 能力**：扫描版 PDF 走 `pdf-text-extraction` 的可选 OCR 路径；如需高精度识别（中英文混排表格），需额外安装 `tesseract-ocr` + `tesseract-langpack-chi_sim`

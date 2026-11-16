@@ -29,13 +29,10 @@
 - 按设计语言产出 HTML / React / Vue / SwiftUI 等
 - 输出**包含 token 文件 + 组件代码 + 简要说明**
 
-## 包含的 skill
+## 设计参考库
 
-### 基础骨架
-- `skills/kanban/` — 设计任务跟踪
-- `skills/skill-maker/` — 自定义设计模板沉淀
+74 个设计系统来自 VoltAgent/awesome-design-md（MIT）：
 
-### 设计参考库（74 个，VoltAgent/awesome-design-md，MIT）
 - `references/<site>/DESIGN.md` — 74 个真实网站的设计令牌
 - `references/<site>/README.md` — 模板来源说明
 

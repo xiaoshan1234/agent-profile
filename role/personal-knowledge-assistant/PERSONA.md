@@ -31,8 +31,3 @@
 ## 已知缺口
 
 本 role 当前**未装配** pdf-text-extraction skill。需要时从 `~/.hermes/profiles/lily/skills/` 拉回 origin/ 再装配。
-
-## 包含的 skill
-
-- `skills/kanban/` — 阅读进度
-- `skills/skill-maker/` — 笔记模板
