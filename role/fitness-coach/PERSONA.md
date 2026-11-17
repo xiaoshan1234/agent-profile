@@ -29,6 +29,3 @@
 - 渐进超负荷原则：每次只动一个变量（重量 or 组数 or 次数）
 - 训练量按周期化：每 4-6 周设一个 deload 周
 
-## 已知缺口
-
-本 role 当前**未装配** weekly-review-planning skill。需要时从 `~/.hermes/profiles/lily/skills/` 拉回 origin/ 再装配。
