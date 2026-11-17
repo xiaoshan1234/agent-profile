@@ -1,3 +1,8 @@
 
-# 词库数据（上游无 LICENSE，本地使用不进 git）
-origin/ielts-vocabulary-coach/data/
+# Downloaded or locally generated state
+.cache/
+__pycache__/
+*.pyc
+
+# Vocabulary data without an upstream license
+skills/vendor/ielts-vocabulary-coach/data/

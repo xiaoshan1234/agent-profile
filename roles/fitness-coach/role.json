@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "name": "fitness-coach",
+  "description": "Build safe training plans, track progress, and review workouts with recovery-aware coaching.",
+  "soul": {
+    "mode": "compose",
+    "files": [
+      "PERSONA.md",
+      "USAGE.md"
+    ]
+  },
+  "skills": []
+}

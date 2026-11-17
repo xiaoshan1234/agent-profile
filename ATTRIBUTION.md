@@ -10,15 +10,15 @@
 - **复制时间**：2026-08-16
 
 涉及 skill（7 个）：
-- `origin/sheltered-instruction-lesson-modifier/`
-- `origin/academic-language-sentence-frame-generator/`
-- `origin/vocabulary-tiering-tool/`
-- `origin/language-demand-analyser/`
-- `origin/scaffolded-task-modifier/`
-- `origin/ai-hallucination-fact-check-protocol/`
-- `origin/ai-socratic-dialogue-designer/`
+- `skills/vendor/sheltered-instruction-lesson-modifier/`
+- `skills/vendor/academic-language-sentence-frame-generator/`
+- `skills/vendor/vocabulary-tiering-tool/`
+- `skills/vendor/language-demand-analyser/`
+- `skills/vendor/scaffolded-task-modifier/`
+- `skills/vendor/ai-hallucination-fact-check-protocol/`
+- `skills/vendor/ai-socratic-dialogue-designer/`
 
-> ⚠️ **CC BY-SA 传染条款**：上述 skill 的衍生作品（包括 `role/english-teacher/` 中复制后的版本）必须同样以 CC BY-SA 4.0 发布。本仓库整体保持 Apache/MIT 风格，但包含上述 skill 的部分（如 `role/english-teacher/`）需视为 CC BY-SA 兼容。
+> ⚠️ **CC BY-SA 传染条款**：上述 skill 的衍生作品（包括 `roles/english-teacher/` 中复制后的版本）必须同样以 CC BY-SA 4.0 发布。本仓库整体保持 Apache/MIT 风格，但包含上述 skill 的部分（如 `roles/english-teacher/`）需视为 CC BY-SA 兼容。
 
 ## fluent
 
@@ -28,18 +28,18 @@
 - **复制时间**：2026-08-16
 
 涉及 skill（12 个，命名 `fluent-*`）：
-- `origin/fluent-setup/`
-- `origin/fluent-learn/`
-- `origin/fluent-vocab/`
-- `origin/fluent-speaking/`
-- `origin/fluent-reading/`
-- `origin/fluent-writing/`
-- `origin/fluent-review/`
-- `origin/fluent-progress/`
-- `origin/fluent-sm2-calculator/`
-- `origin/fluent-session-analyzer/`
-- `origin/fluent-feedback-formatter/`
-- `origin/fluent-db-updater/`
+- `skills/vendor/fluent-setup/`
+- `skills/vendor/fluent-learn/`
+- `skills/vendor/fluent-vocab/`
+- `skills/vendor/fluent-speaking/`
+- `skills/vendor/fluent-reading/`
+- `skills/vendor/fluent-writing/`
+- `skills/vendor/fluent-review/`
+- `skills/vendor/fluent-progress/`
+- `skills/vendor/fluent-sm2-calculator/`
+- `skills/vendor/fluent-session-analyzer/`
+- `skills/vendor/fluent-feedback-formatter/`
+- `skills/vendor/fluent-db-updater/`
 
 > MIT 允许任意复制、再发布、修改，仅要求保留版权声明和许可声明。
 
@@ -51,14 +51,14 @@
 - **复制时间**：2026-08-17
 
 涉及 skill（8 个，命名 `ielts-*`）：
-- `origin/ielts-study-plan/` — 备考计划
-- `origin/ielts-vocabulary-coach/` — 词汇辅导
-- `origin/ielts-writing-review/` — 写作四项评分
-- `origin/ielts-speaking-coach/` — 口语模拟
-- `origin/ielts-reading-review/` — 阅读复盘
-- `origin/ielts-listening-review/` — 听力复盘
-- `origin/ielts-practice/` — 练习
-- `origin/ielts-mock-review/` — 模考复盘
+- `skills/vendor/ielts-study-plan/` — 备考计划
+- `skills/vendor/ielts-vocabulary-coach/` — 词汇辅导
+- `skills/vendor/ielts-writing-review/` — 写作四项评分
+- `skills/vendor/ielts-speaking-coach/` — 口语模拟
+- `skills/vendor/ielts-reading-review/` — 阅读复盘
+- `skills/vendor/ielts-listening-review/` — 听力复盘
+- `skills/vendor/ielts-practice/` — 练习
+- `skills/vendor/ielts-mock-review/` — 模考复盘
 
 > ⚠️ **依赖外部服务**：上述 skill 默认通过 OAuth 连接到 IELTS Buddy MCP（`https://ieltsbuddy.igocn.cn/mcp`）。本仓库不托管该服务，使用前需自行注册。无 MCP 时按 SKILL.md 内置的本地工作流 fallback 仍可工作。
 
@@ -67,7 +67,7 @@
 - **来源**：`https://github.com/zhenghaoyang24/english-vocabulary`
 - **LICENSE**：**未声明**（默认保留所有权利）
 - **作者**：zhenghaoyang24
-- **本仓库使用方式**：**不复制数据**。仅 `origin/ielts-vocabulary-coach/scripts/fetch_vocab_data.sh` 提供下载脚本，用户执行后数据落到本地 `origin/ielts-vocabulary-coach/data/`（gitignored）。
+- **本仓库使用方式**：**不复制数据**。仅 `skills/vendor/ielts-vocabulary-coach/scripts/fetch_vocab_data.sh` 提供下载脚本，用户执行后数据落到本地 `skills/vendor/ielts-vocabulary-coach/data/`（gitignored）。
 - **复制时间**：脚本于 2026-08-17 写入
 
 数据规模（脚本会下载到本地，不进 git）：
@@ -89,12 +89,12 @@
 
 | skill | 用途 | LICENSE 文件 |
 |---|---|---|
-| `origin/docx/` | Word 创建/读取/编辑/模板/审阅 | ✅ 有 |
-| `origin/xlsx/` | Excel 创建/读取/编辑 + CSV | ✅ 有 |
-| `origin/pdf/` | PDF 创建/读取/合并/填表/加密 | ✅ 有 |
-| `origin/pdf-text-extraction/` | 批量 PDF→文本 + 分诊 + 可选 OCR | ❌ frontmatter |
-| `origin/meeting-action-items/` | 会议笔记 → 决议/行动/ticket | ❌ frontmatter |
-| `origin/document-to-action-items/` | 文档抽取带引用的责任/截止/任务 | ❌ frontmatter |
+| `skills/vendor/docx/` | Word 创建/读取/编辑/模板/审阅 | ✅ 有 |
+| `skills/vendor/xlsx/` | Excel 创建/读取/编辑 + CSV | ✅ 有 |
+| `skills/vendor/pdf/` | PDF 创建/读取/合并/填表/加密 | ✅ 有 |
+| `skills/vendor/pdf-text-extraction/` | 批量 PDF→文本 + 分诊 + 可选 OCR | ❌ frontmatter |
+| `skills/vendor/meeting-action-items/` | 会议笔记 → 决议/行动/ticket | ❌ frontmatter |
+| `skills/vendor/document-to-action-items/` | 文档抽取带引用的责任/截止/任务 | ❌ frontmatter |
 
 > 注：仅 `frontmatter` 声明 license 字段而无独立 LICENSE 文件的 skill，依据各 SKILL.md 内声明的 MIT 条款再分发（保留版权声明）。如未来升级上游版本需重新核对 LICENSE 状态。
 
@@ -109,22 +109,22 @@
 
 | skill | 用途 | LICENSE |
 |---|---|---|
-| `origin/findata-toolkit-cn/` | A 股金融数据工具包（实时行情、财务、宏观） | ✅ Apache-2.0 |
-| `origin/financial-statement-analyzer/` | 单公司财报深度分析 | ✅ Apache-2.0 |
-| `origin/undervalued-stock-screener/` | 低估值股票筛选 | ✅ Apache-2.0 |
-| `origin/portfolio-health-check/` | 组合诊断 | ✅ Apache-2.0 |
-| `origin/high-dividend-strategy/` | A 股高股息策略 | ✅ Apache-2.0 |
-| `origin/insider-trading-analyzer/` | A 股董监高增减持 | ✅ Apache-2.0 |
-| `origin/esg-screener/` | ESG 评分 | ✅ Apache-2.0 |
-| `origin/event-driven-detector/` | 事件驱动（并购/重组/回购） | ✅ Apache-2.0 |
-| `origin/quant-factor-screener/` | 多因子筛选 | ✅ Apache-2.0 |
-| `origin/risk-adjusted-return-optimizer/` | 风险调整后收益组合 | ✅ Apache-2.0 |
-| `origin/sector-rotation-detector/` | 行业轮动 | ✅ Apache-2.0 |
-| `origin/sentiment-reality-gap/` | 逆向投资 | ✅ Apache-2.0 |
-| `origin/small-cap-growth-identifier/` | 小盘成长 | ✅ Apache-2.0 |
-| `origin/suitability-report-generator/` | 适当性报告 | ✅ Apache-2.0 |
-| `origin/tech-hype-vs-fundamentals/` | 科技股估值 vs 基本面 | ✅ Apache-2.0 |
-| `origin/stock-watcher/` | 自选股行情（10jqka 同花顺） | ❌ **无 LICENSE** |
+| `skills/vendor/findata-toolkit-cn/` | A 股金融数据工具包（实时行情、财务、宏观） | ✅ Apache-2.0 |
+| `skills/vendor/financial-statement-analyzer/` | 单公司财报深度分析 | ✅ Apache-2.0 |
+| `skills/vendor/undervalued-stock-screener/` | 低估值股票筛选 | ✅ Apache-2.0 |
+| `skills/vendor/portfolio-health-check/` | 组合诊断 | ✅ Apache-2.0 |
+| `skills/vendor/high-dividend-strategy/` | A 股高股息策略 | ✅ Apache-2.0 |
+| `skills/vendor/insider-trading-analyzer/` | A 股董监高增减持 | ✅ Apache-2.0 |
+| `skills/vendor/esg-screener/` | ESG 评分 | ✅ Apache-2.0 |
+| `skills/vendor/event-driven-detector/` | 事件驱动（并购/重组/回购） | ✅ Apache-2.0 |
+| `skills/vendor/quant-factor-screener/` | 多因子筛选 | ✅ Apache-2.0 |
+| `skills/vendor/risk-adjusted-return-optimizer/` | 风险调整后收益组合 | ✅ Apache-2.0 |
+| `skills/vendor/sector-rotation-detector/` | 行业轮动 | ✅ Apache-2.0 |
+| `skills/vendor/sentiment-reality-gap/` | 逆向投资 | ✅ Apache-2.0 |
+| `skills/vendor/small-cap-growth-identifier/` | 小盘成长 | ✅ Apache-2.0 |
+| `skills/vendor/suitability-report-generator/` | 适当性报告 | ✅ Apache-2.0 |
+| `skills/vendor/tech-hype-vs-fundamentals/` | 科技股估值 vs 基本面 | ✅ Apache-2.0 |
+| `skills/vendor/stock-watcher/` | 自选股行情（10jqka 同花顺） | ❌ **无 LICENSE** |
 
 > ⚠️ **stock-watcher 无 LICENSE**：来源未提供 LICENSE 文件。用户选择不单独处理（仓库整体知名度低，版权问题后期统一处理），已加进 git 仓库。
 
@@ -139,12 +139,12 @@
 
 | skill | 用途 |
 |---|---|
-| `origin/fundamental-analysis/` | 美股基本面分析 |
-| `origin/dcf-valuation/` | DCF 估值 + 敏感度 |
-| `origin/earnings-call-analysis/` | 财报电话会议情绪/管理层语气 |
-| `origin/stock-eval/` | 美股综合评估 |
-| `origin/technical-analysis/` | 技术分析 |
-| `origin/insider-trading/` | 美股 SEC Form 4 内部人交易 |
+| `skills/vendor/fundamental-analysis/` | 美股基本面分析 |
+| `skills/vendor/dcf-valuation/` | DCF 估值 + 敏感度 |
+| `skills/vendor/earnings-call-analysis/` | 财报电话会议情绪/管理层语气 |
+| `skills/vendor/stock-eval/` | 美股综合评估 |
+| `skills/vendor/technical-analysis/` | 技术分析 |
+| `skills/vendor/insider-trading/` | 美股 SEC Form 4 内部人交易 |
 
 > 与 amg profile 的 `insider-trading-analyzer`（A 股董监高）功能互补——前者 A 股、后者美股。
 
@@ -155,13 +155,13 @@
 - **作者**：VoltAgent
 - **复制时间**：2026-08-17
 
-74 个网站的设计令牌（DESIGN.md），作为 `role/ui-designer/references/` 使用（**未进入 origin/**）：
+74 个网站的设计令牌（DESIGN.md），作为 `roles/ui-designer/references/` 使用（**未进入 skills/vendor/**）：
 - 覆盖 SaaS / 工具、AI / 开发、金融、电商、汽车、消费电子、云基础设施
-- 完整 LICENSE 见 `role/ui-designer/LICENSE-VOLTAGENT.md`
+- 完整 LICENSE 见 `roles/ui-designer/LICENSE-VOLTAGENT.md`
 
-> 注：DESIGN.md 是纯文本设计系统（color tokens / typography / spacing / motion），不是流程性 skill，所以放在 role 的 references/ 而非 origin/。
+> 注：DESIGN.md 是纯文本设计系统（color tokens / typography / spacing / motion），不是流程性 skill，所以放在 role 的 references/ 而非 skills/vendor/。
 
 ## 后续维护
 
-- 如上游更新，从对应 git 仓库 `git pull` 后，将 skill 目录重新覆盖到 `origin/<name>/` 即可
+- 如上游更新，从对应 git 仓库 `git pull` 后，将 skill 目录重新覆盖到 `skills/vendor/<name>/` 即可
 - LICENSE 文本在 `LICENSE` 文件中保留

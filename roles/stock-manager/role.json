@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "name": "stock-manager",
+  "description": "Research, screen, monitor, and review stocks and portfolios with cited data and explicit risk controls.",
+  "soul": {
+    "mode": "compose",
+    "files": [
+      "PERSONA.md",
+      "USAGE.md"
+    ]
+  },
+  "skills": [
+    "stock-watcher",
+    "findata-toolkit-cn",
+    "financial-statement-analyzer",
+    "undervalued-stock-screener",
+    "high-dividend-strategy",
+    "quant-factor-screener",
+    "esg-screener",
+    "event-driven-detector",
+    "sentiment-reality-gap",
+    "small-cap-growth-identifier",
+    "tech-hype-vs-fundamentals",
+    "insider-trading-analyzer",
+    "sector-rotation-detector",
+    "portfolio-health-check",
+    "risk-adjusted-return-optimizer",
+    "suitability-report-generator",
+    "fundamental-analysis",
+    "dcf-valuation",
+    "earnings-call-analysis",
+    "stock-eval",
+    "technical-analysis",
+    "insider-trading"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "name": "doc-assistant",
+  "description": "Create and edit Word, Excel, and PDF documents; turn meetings and source documents into traceable action items.",
+  "soul": {
+    "mode": "compose",
+    "files": [
+      "PERSONA.md",
+      "USAGE.md"
+    ]
+  },
+  "skills": [
+    "docx",
+    "xlsx",
+    "pdf",
+    "pdf-text-extraction",
+    "meeting-action-items",
+    "document-to-action-items"
+  ]
+}
