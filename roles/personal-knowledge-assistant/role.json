@@ -3,5 +3,7 @@
   "name": "personal-knowledge-assistant",
   "description": "Capture, organize, retrieve, and review personal knowledge with source-aware notes.",
   "soul": "SOUL.md",
-  "skills": []
+  "skills": [
+    "knowledge/notes-local-apple-notion-obsidian-more"
+  ]
 }

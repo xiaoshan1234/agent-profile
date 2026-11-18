@@ -9,6 +9,7 @@
     "documents/pdf",
     "documents/pdf-text-extraction",
     "documents/meeting-action-items",
-    "documents/document-to-action-items"
+    "documents/document-to-action-items",
+    "documents/ocr-word"
   ]
 }
