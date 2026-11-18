@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Hermes skill catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "skills"],
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "skills": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["source", "installed_as", "description"],
+        "properties": {
+          "source": {
+            "enum": ["file", "local", "vendor", "hermes"]
+          },
+          "domain": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "identifier": {
+            "type": "string"
+          },
+          "installed_as": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9._-]+$"
+          },
+          "description": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "object"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "source": {
+                  "const": "file"
+                }
+              }
+            },
+            "then": {
+              "required": ["path", "domain"]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "source": {
+                  "enum": ["local", "vendor"]
+                }
+              }
+            },
+            "then": {
+              "required": ["path"]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "source": {
+                  "const": "hermes"
+                }
+              }
+            },
+            "then": {
+              "required": ["identifier"]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
