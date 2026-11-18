@@ -26,7 +26,7 @@ Schema-v2 roles reference their SOUL directly:
 After changing a role manifest or the skill catalog, regenerate indexes:
 
 ```bash
-./scripts/rebuild-catalog.py
+./scripts/rebuild_catalog.py
 ```
 
 Deploy a role with:

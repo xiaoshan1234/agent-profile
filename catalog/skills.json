@@ -727,17 +727,6 @@
       "path": "skills/shared/ai-socratic-dialogue-designer",
       "source": "file"
     },
-    "shared/find-skill-codex": {
-      "description": "Find Codex skills across local and public registries.",
-      "domain": "shared",
-      "installed_as": "find-skill",
-      "origin": {
-        "note": "Migrated into the domain layout.",
-        "type": "local"
-      },
-      "path": "skills/shared/find-skill-codex",
-      "source": "file"
-    },
     "shared/find-skill-hermes": {
       "description": "Find and install skills from configured registries.",
       "domain": "shared",
