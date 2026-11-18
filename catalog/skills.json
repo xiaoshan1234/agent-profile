@@ -277,7 +277,7 @@
       "source": "file"
     },
     "education/ielts-reading-review": {
-      "description": "Review IELTS Reading mistakes with passage evidence and paraphrase bridges, extract useful passage vocabulary, and create validated DOCX evidence maps or lexicons. Use when a learner provides a Reading passage, questions, answers, result, or DOCX and asks for error analysis, answer evidence, paraphrase explanation, distractor analysis, or a vocabulary handout.",
+      "description": "IELTS 阅读复盘：原文证据、同义替换、词汇手册 DOCX",
       "domain": "education",
       "installed_as": "ielts-reading-review",
       "origin": {
@@ -299,7 +299,7 @@
       "source": "file"
     },
     "education/ielts-study-plan": {
-      "description": "Build an evidence-backed IELTS baseline, daily study session, cross-skill next action, weekly review, course route, or learning-resource plan for Chinese learners. Use when the learner asks what to study today, needs a plan, wants to turn a practice, speaking, writing, or vocabulary result into the next task, review progress, diagnose a starting level, choose the next practice, or receive a printable learning workbook.",
+      "description": "IELTS 学习计划：诊断、每日任务、周复盘、资源推荐",
       "domain": "education",
       "installed_as": "ielts-study-plan",
       "origin": {

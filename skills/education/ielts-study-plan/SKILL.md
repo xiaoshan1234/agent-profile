@@ -1,6 +1,6 @@
 ---
 name: ielts-study-plan
-description: Build an evidence-backed IELTS baseline, daily study session, cross-skill next action, weekly review, course route, or learning-resource plan for Chinese learners. Use when the learner asks what to study today, needs a plan, wants to turn a practice, speaking, writing, or vocabulary result into the next task, review progress, diagnose a starting level, choose the next practice, or receive a printable learning workbook.
+description: IELTS 学习计划：诊断、每日任务、周复盘、资源推荐
 ---
 
 # IELTS 学习计划

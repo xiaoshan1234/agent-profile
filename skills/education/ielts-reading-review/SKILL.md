@@ -1,6 +1,6 @@
 ---
 name: ielts-reading-review
-description: Review IELTS Reading mistakes with passage evidence and paraphrase bridges, extract useful passage vocabulary, and create validated DOCX evidence maps or lexicons. Use when a learner provides a Reading passage, questions, answers, result, or DOCX and asks for error analysis, answer evidence, paraphrase explanation, distractor analysis, or a vocabulary handout.
+description: IELTS 阅读复盘：原文证据、同义替换、词汇手册 DOCX
 ---
 
 # IELTS 阅读复盘

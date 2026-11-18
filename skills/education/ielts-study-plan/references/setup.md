@@ -12,6 +12,14 @@ https://ieltsbuddy.igocn.cn/mcp
 
 支持 OAuth discovery 和动态客户端注册。不要向用户索要 `client_id`、`client_secret`、access token、refresh token、密码、API Key、私钥或浏览器 cookie。
 
+另有无需 OAuth 的公开 MCP，只提供已发布预测命中与知识资料，供只读查询时可选使用：
+
+```text
+https://ieltsbuddy.igopx.cn/mcp/public
+```
+
+公开端点不返回学习记录、题库进度或写作结果；这些仍需上面的 OAuth 服务。
+
 ## 哪些能力需要 MCP
 
 以下能力使用 MCP 服务：
