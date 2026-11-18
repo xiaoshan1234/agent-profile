@@ -321,7 +321,7 @@
       "source": "file"
     },
     "education/ielts-writing-review": {
-      "description": "Plan, review, or revise IELTS Academic Writing Task 1 or Task 2, including prompt analysis, outline design, self-check, Chinese teacher-style feedback, and validated DOCX reports. Use when a learner provides an essay, prompt, chart, map, process diagram, or revised draft and asks for a writing plan, scoring reference, correction, rewrite guidance, or a Word review document.",
+      "description": "IELTS 写作批改：Task 1/2 规划、批改与 DOCX 报告",
       "domain": "education",
       "installed_as": "ielts-writing-review",
       "origin": {
@@ -727,7 +727,7 @@
       "path": "skills/shared/ai-socratic-dialogue-designer",
       "source": "file"
     },
-    "shared/find-skill-hermes": {
+    "shared/find-skill": {
       "description": "Find and install skills from configured registries.",
       "domain": "shared",
       "installed_as": "find-skill",
@@ -735,7 +735,7 @@
         "note": "Migrated into the domain layout.",
         "type": "local"
       },
-      "path": "skills/shared/find-skill-hermes",
+      "path": "skills/shared/find-skill",
       "source": "file"
     },
     "shared/ideation": {

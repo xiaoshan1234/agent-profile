@@ -1,6 +1,6 @@
 ---
 name: ielts-writing-review
-description: Plan, review, or revise IELTS Academic Writing Task 1 or Task 2, including prompt analysis, outline design, self-check, Chinese teacher-style feedback, and validated DOCX reports. Use when a learner provides an essay, prompt, chart, map, process diagram, or revised draft and asks for a writing plan, scoring reference, correction, rewrite guidance, or a Word review document.
+description: IELTS 写作批改：Task 1/2 规划、批改与 DOCX 报告
 ---
 
 # IELTS 写作批改
