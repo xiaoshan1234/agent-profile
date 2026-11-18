@@ -1,4 +1,5 @@
 ---
+name: insider-trading
 description: Track and analyze insider buying/selling activity from SEC Form 4 filings
 ---
 

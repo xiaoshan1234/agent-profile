@@ -1,4 +1,5 @@
 ---
+name: technical-analysis
 description: Technical analysis of US stocks using charts and indicators
 ---
 

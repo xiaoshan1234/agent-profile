@@ -1,4 +1,5 @@
 ---
+name: dcf-valuation
 description: Discounted Cash Flow (DCF) intrinsic value modeling with sensitivity analysis
 ---
 

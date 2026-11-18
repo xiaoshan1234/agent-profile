@@ -1,4 +1,5 @@
 ---
+name: fundamental-analysis
 description: Deep fundamental analysis of US stocks using financial statements
 ---
 

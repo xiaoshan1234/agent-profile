@@ -1,4 +1,5 @@
 ---
+name: stock-eval
 description: Evaluate US stocks with comprehensive fundamental and valuation analysis
 ---
 

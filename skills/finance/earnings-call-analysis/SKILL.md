@@ -1,4 +1,5 @@
 ---
+name: earnings-call-analysis
 description: Analyze earnings call transcripts for sentiment, key themes, and management tone
 ---
 

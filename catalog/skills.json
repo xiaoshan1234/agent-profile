@@ -623,7 +623,7 @@
       "installed_as": "minecraft-modpack-server",
       "origin": {
         "note": "Migrated into the domain layout.",
-        "type": "vendor"
+        "type": "local"
       },
       "path": "skills/lifestyle/minecraft-modpack-server",
       "source": "file"
@@ -634,7 +634,7 @@
       "installed_as": "pokemon-player",
       "origin": {
         "note": "Migrated into the domain layout.",
-        "type": "vendor"
+        "type": "local"
       },
       "path": "skills/lifestyle/pokemon-player",
       "source": "file"
@@ -656,7 +656,7 @@
       "installed_as": "browser-control",
       "origin": {
         "note": "Migrated into the domain layout.",
-        "type": "vendor"
+        "type": "local"
       },
       "path": "skills/productivity/browser-control",
       "source": "file"
@@ -667,7 +667,7 @@
       "installed_as": "hermes-desktop-plugins",
       "origin": {
         "note": "Migrated into the domain layout.",
-        "type": "vendor"
+        "type": "local"
       },
       "path": "skills/productivity/hermes-desktop-plugins",
       "source": "file"
@@ -678,7 +678,7 @@
       "installed_as": "himalaya",
       "origin": {
         "note": "Migrated into the domain layout.",
-        "type": "vendor"
+        "type": "local"
       },
       "path": "skills/productivity/himalaya",
       "source": "file"
@@ -689,7 +689,7 @@
       "installed_as": "omv-manage",
       "origin": {
         "note": "Migrated into the domain layout.",
-        "type": "vendor"
+        "type": "local"
       },
       "path": "skills/productivity/omv-manage",
       "source": "file"
@@ -700,7 +700,7 @@
       "installed_as": "webhook-subscriptions",
       "origin": {
         "note": "Migrated into the domain layout.",
-        "type": "vendor"
+        "type": "local"
       },
       "path": "skills/productivity/webhook-subscriptions",
       "source": "file"
@@ -744,7 +744,7 @@
       "installed_as": "ideation",
       "origin": {
         "note": "Migrated into the domain layout.",
-        "type": "vendor"
+        "type": "local"
       },
       "path": "skills/shared/ideation",
       "source": "file"
