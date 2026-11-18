@@ -80,6 +80,16 @@ def validate_single_segment(value: str, label: str) -> str:
     return text
 
 
+def validate_skill_id(value: str) -> tuple[str, str, str]:
+    raw = str(value).strip().strip("/")
+    parts = raw.split("/")
+    if len(parts) != 2:
+        raise RepoError(f"Skill id must be '<domain>/<name>': {value!r}")
+    domain = validate_single_segment(parts[0], "skill domain")
+    name = validate_single_segment(parts[1], "skill name")
+    return domain, name, f"{domain}/{name}"
+
+
 def safe_repo_path(root: Path, relative: str) -> Path:
     candidate = (root / relative).resolve()
     try:
@@ -168,7 +178,7 @@ def role_manifest(root: Path, role: str) -> tuple[Path, Dict[str, Any]]:
     if not role_dir.is_dir():
         raise RepoError(f"Role not found: {role}")
     data = load_json(role_dir / "role.json")
-    if int(data.get("schema", 0)) != SCHEMA_VERSION:
+    if int(data.get("schema", 0)) not in {1, 2}:
         raise RepoError(f"Unsupported role schema in {role_dir / 'role.json'}")
     if data.get("name") != role_dir.name:
         raise RepoError(f"Role name does not match directory: {role_dir}")
@@ -195,13 +205,13 @@ def resolve_catalog_entry(
         raise RepoError(f"Skill is missing from catalog/skills.json: {skill_id}")
     entry = dict(catalog[skill_id])
     source = str(entry.get("source", "")).strip()
-    if source not in {"local", "vendor", "hermes"}:
+    if source not in {"local", "vendor", "file", "hermes"}:
         raise RepoError(f"Unsupported source {source!r} for skill {skill_id}")
     installed_as = validate_single_segment(
         str(entry.get("installed_as") or skill_id), f"installed_as for {skill_id}"
     )
     entry["installed_as"] = installed_as
-    if source in {"local", "vendor"}:
+    if source in {"local", "vendor", "file"}:
         relative = str(entry.get("path", "")).strip()
         if not relative:
             raise RepoError(f"Skill {skill_id} has no catalog path")

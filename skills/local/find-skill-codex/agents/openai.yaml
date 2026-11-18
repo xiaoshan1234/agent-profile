@@ -1,6 +1,0 @@
-interface:
-  display_name: "Find Skill"
-  short_description: "Discover and install Codex-compatible skills"
-  default_prompt: "Use $find-skill to locate a skill for PDF text extraction."
-policy:
-  allow_implicit_invocation: true

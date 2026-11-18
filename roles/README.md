@@ -4,9 +4,8 @@ Each directory defines one deployable Hermes role.
 
 ```text
 roles/<role>/
-|-- role.json       Canonical profile, skill, and SOUL selection
-|-- PERSONA.md      Role identity
-|-- USAGE.md        Usage guidance appended to the role SOUL by default
+|-- role.json       Canonical SOUL path and skill selection
+|-- SOUL.md         Deployable role identity
 |-- SKILLS.md       Generated skill index; do not edit manually
 `-- references/     Optional non-skill role assets
 ```
@@ -15,15 +14,12 @@ roles/<role>/
 `catalog/common.json` are merged into every role, followed by the role-specific
 `skills` array.
 
-The default SOUL mode composes the files listed under `soul.files`. A role can
-later switch to a single role-specific file by setting:
+Schema-v2 roles reference their SOUL directly:
 
 ```json
 {
-  "soul": {
-    "mode": "file",
-    "file": "SOUL.md"
-  }
+  "schema": 2,
+  "soul": "SOUL.md"
 }
 ```
 

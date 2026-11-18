@@ -1,431 +1,797 @@
 {
   "schema": 1,
   "skills": {
-    "academic-language-sentence-frame-generator": {
-      "description": "Generate tiered sentence frames for academic tasks that scaffold language production across proficiency levels. Use when EAL students need structured language support for classroom discourse.",
-      "installed_as": "academic-language-sentence-frame-generator",
-      "path": "skills/vendor/academic-language-sentence-frame-generator",
-      "source": "vendor"
-    },
-    "ai-hallucination-fact-check-protocol": {
-      "description": "Design a fact-checking protocol for AI-generated text, extending SIFT with AI-specific adaptations for hallucination detection. Use when students need to verify AI claims and citations.",
-      "installed_as": "ai-hallucination-fact-check-protocol",
-      "path": "skills/vendor/ai-hallucination-fact-check-protocol",
-      "source": "vendor"
-    },
-    "ai-socratic-dialogue-designer": {
-      "description": "Design a multi-round questioning sequence for interrogating AI chatbot answers, tracking how responses shift and distinguishing genuine updates from sycophantic capitulation. Use when teaching students to probe AI critically.",
-      "installed_as": "ai-socratic-dialogue-designer",
-      "path": "skills/vendor/ai-socratic-dialogue-designer",
-      "source": "vendor"
-    },
-    "browser-control": {
-      "description": "使用 node.js 来控制浏览器，例如打开网页截图，获取网页内容",
-      "installed_as": "browser-control",
-      "path": "skills/vendor/browser-control",
-      "source": "vendor"
-    },
-    "claude-design": {
+    "design/claude-design": {
       "description": "Design one-off HTML artifacts (landing, deck, prototype).",
+      "domain": "design",
       "installed_as": "claude-design",
-      "path": "skills/vendor/claude-design",
-      "source": "vendor"
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/design/claude-design",
+      "source": "file"
     },
-    "dcf-valuation": {
-      "description": "Discounted Cash Flow (DCF) intrinsic value modeling with sensitivity analysis",
-      "installed_as": "dcf-valuation",
-      "path": "skills/vendor/dcf-valuation",
-      "source": "vendor"
-    },
-    "document-to-action-items": {
-      "description": "Extract cited obligations, deadlines, tasks from documents.",
-      "installed_as": "document-to-action-items",
-      "path": "skills/vendor/document-to-action-items",
-      "source": "vendor"
-    },
-    "docx": {
-      "description": "Create, read, edit, template, and review Word .docx files.",
-      "installed_as": "docx",
-      "path": "skills/vendor/docx",
-      "source": "vendor"
-    },
-    "earnings-call-analysis": {
-      "description": "Analyze earnings call transcripts for sentiment, key themes, and management tone",
-      "installed_as": "earnings-call-analysis",
-      "path": "skills/vendor/earnings-call-analysis",
-      "source": "vendor"
-    },
-    "esg-screener": {
-      "description": "从ESG（环境、社会、治理）视角筛选和分析A股上市公司，评估可持续发展实践、争议事件和负责任投资标准。当用户询问ESG投资、可持续投资、社会责任投资、绿色投资、碳足迹分析、公司治理评估、争议事件筛查、排除清单，或对公司或组合进行ESG评分时使用此技能。",
-      "installed_as": "esg-screener",
-      "path": "skills/vendor/esg-screener",
-      "source": "vendor"
-    },
-    "event-driven-detector": {
-      "description": "识别和分析可能创造定价偏差的A股公司事件，包括并购重组、资产注入、回购增持、管理层变更和指数调整。当用户询问并购重组机会、资产注入、股份回购分析、国企改革、指数调整交易、特殊事件投资或事件驱动策略时使用此技能。",
-      "installed_as": "event-driven-detector",
-      "path": "skills/vendor/event-driven-detector",
-      "source": "vendor"
-    },
-    "financial-statement-analyzer": {
-      "description": "对单个A股上市公司的财务报表进行深度分析，评估盈利质量、财务健康状况、财务造假风险和运营效率。当用户要求深入分析某家公司的财务报表、杜邦分析、盈利质量检查、资产负债表分析、现金流分析、Z值评分、M值评分、营运资本分析，或任何详细的单公司财务审视时使用此技能。",
-      "installed_as": "financial-statement-analyzer",
-      "path": "skills/vendor/financial-statement-analyzer",
-      "source": "vendor"
-    },
-    "find-skill-codex": {
-      "description": "Find Codex skills across local and public registries.",
-      "installed_as": "find-skill",
-      "path": "skills/local/find-skill-codex",
-      "source": "local"
-    },
-    "find-skill-hermes": {
-      "description": "Find and install skills from configured registries.",
-      "installed_as": "find-skill",
-      "path": "skills/local/find-skill-hermes",
-      "source": "local"
-    },
-    "findata-toolkit-cn": {
-      "description": "A股金融数据工具包。提供脚本获取A股实时行情、财务指标、董监高增减持、北向资金、宏观经济数据（LPR、CPI/PPI、PMI、社融、M2）。用于需要实时A股市场数据支撑投资分析时。所有数据源免费，无需API密钥。",
-      "installed_as": "findata-toolkit-cn",
-      "path": "skills/vendor/findata-toolkit-cn",
-      "source": "vendor"
-    },
-    "fluent-db-updater": {
-      "description": "Atomically update all 6 Fluent learner databases (learner-profile, progress, mistakes, mastery, spaced-repetition, session-log) at session end by calling .claude/hooks/update-db.py with a single JSON payload. Use at the end of every practice session — fluent-writing, fluent-vocab, fluent-speaking, fluent-reading, fluent-review, fluent-learn — to persist the session's errors, review results, new vocabulary, and session metadata.",
-      "installed_as": "fluent-db-updater",
-      "path": "skills/vendor/fluent-db-updater",
-      "source": "vendor"
-    },
-    "fluent-feedback-formatter": {
-      "description": "Canonical feedback template for every learner answer in the Fluent system — celebrate correct parts, correct mistakes with category and brief explanation, show the full correct version, score out of 10, and classify severity (🔴 critical / 🟡 moderate / 🟢 minor). Use in every practice session (fluent-writing, fluent-vocab, fluent-speaking, fluent-reading, fluent-review) immediately after the learner submits an answer.",
-      "installed_as": "fluent-feedback-formatter",
-      "path": "skills/vendor/fluent-feedback-formatter",
-      "source": "vendor"
-    },
-    "fluent-learn": {
-      "description": "Main adaptive language-learning session that mixes skills (writing, speaking, vocabulary, reading) and exercise types based on the learner's current level, weak patterns, and due reviews. Triggered only when the learner types /fluent-learn. Greets the learner, shows today's plan, asks what to practice, runs interleaved exercises one at a time, and updates all databases at the end.",
-      "installed_as": "fluent-learn",
-      "path": "skills/vendor/fluent-learn",
-      "source": "vendor"
-    },
-    "fluent-progress": {
-      "description": "Show the learner's language learning progress, statistics, mastery levels, streak, and achievements. Use when the learner asks \"how am I doing\", \"show my progress\", \"stats\", \"dashboard\", \"what's my streak\", \"how many words have I learned\", or invokes /fluent-progress. Read-only — safe to auto-invoke.",
-      "installed_as": "fluent-progress",
-      "path": "skills/vendor/fluent-progress",
-      "source": "vendor"
-    },
-    "fluent-reading": {
-      "description": "Run an interactive reading comprehension session with a short target-language text followed by main-idea, detail, vocabulary-in-context, inference, and true/false questions. Triggered only when the learner types /fluent-reading. Presents the text, waits for the learner to read, then asks questions one at a time with immediate feedback, and optionally adds new vocabulary to the spaced-repetition queue.",
-      "installed_as": "fluent-reading",
-      "path": "skills/vendor/fluent-reading",
-      "source": "vendor"
-    },
-    "fluent-review": {
-      "description": "Run today's spaced-repetition review queue — items scheduled by SM-2 that need reinforcement before the learner forgets them. Triggered only when the learner types /fluent-review. Pulls due items from spaced-repetition.review_queue.today, generates a targeted exercise for each, evaluates the response, updates SM-2 parameters, and reshelves items into the correct future queue.",
-      "installed_as": "fluent-review",
-      "path": "skills/vendor/fluent-review",
-      "source": "vendor"
-    },
-    "fluent-session-analyzer": {
-      "description": "Parse Fluent `/results/*.md` session files to extract error patterns, strengths, accuracy trends, and focus areas for the next session. Use when the tutor needs to analyze the learner's recent performance — planning the next lesson, recommending focus areas, or answering \"what should I practice next?\".",
-      "installed_as": "fluent-session-analyzer",
-      "path": "skills/vendor/fluent-session-analyzer",
-      "source": "vendor"
-    },
-    "fluent-setup": {
-      "description": "One-time interactive onboarding that creates the learner's personalized language-learning profile — name, target language, native language, current/target CEFR level, timeline, daily minutes, and learning goals. Triggered only when the learner types /fluent-setup. Also handles profile updates and resets for returning users. Must never auto-invoke because re-running can reset progress.",
-      "installed_as": "fluent-setup",
-      "path": "skills/vendor/fluent-setup",
-      "source": "vendor"
-    },
-    "fluent-sm2-calculator": {
-      "description": "SM-2 spaced-repetition algorithm reference for the Fluent language learning system. Use whenever the tutor schedules the next review of a vocabulary item, grammar rule, or error pattern — i.e. after every answered review question. Defines the 0-5 quality scale, interval formula, easiness-factor update, and mastery-level transitions that keep the spaced-repetition database correct.",
-      "installed_as": "fluent-sm2-calculator",
-      "path": "skills/vendor/fluent-sm2-calculator",
-      "source": "vendor"
-    },
-    "fluent-speaking": {
-      "description": "Run an interactive typed conversation session simulating spoken practice — free-flowing dialogue, role-plays, and opinion questions prioritizing communication over perfect grammar. Triggered only when the learner types /fluent-speaking. Asks questions one at a time in the target language, evaluates clarity and naturalness first and grammar second, and updates all databases at the end.",
-      "installed_as": "fluent-speaking",
-      "path": "skills/vendor/fluent-speaking",
-      "source": "vendor"
-    },
-    "fluent-vocab": {
-      "description": "Run an interactive vocabulary drill session with flashcard-style prompts, spaced repetition, and per-answer feedback. Triggered only when the learner types /fluent-vocab. Reads spaced-repetition / mistakes / mastery DBs to pick words, presents one word at a time, scores each answer, and calls fluent-db-updater at the end.",
-      "installed_as": "fluent-vocab",
-      "path": "skills/vendor/fluent-vocab",
-      "source": "vendor"
-    },
-    "fluent-writing": {
-      "description": "Run an interactive writing practice session (emails, letters, forms, short texts) with systematic error analysis, category-tagged corrections, and detailed feedback. Triggered only when the learner types /fluent-writing. Selects a scenario matched to mastery, lets the learner compose, then analyzes grammar, register, vocabulary, structure, and spelling before updating all databases.",
-      "installed_as": "fluent-writing",
-      "path": "skills/vendor/fluent-writing",
-      "source": "vendor"
-    },
-    "fundamental-analysis": {
-      "description": "Deep fundamental analysis of US stocks using financial statements",
-      "installed_as": "fundamental-analysis",
-      "path": "skills/vendor/fundamental-analysis",
-      "source": "vendor"
-    },
-    "hermes-desktop-plugins": {
-      "description": "Write desktop app plugins that add UI panes and commands.",
-      "installed_as": "hermes-desktop-plugins",
-      "path": "skills/vendor/hermes-desktop-plugins",
-      "source": "vendor"
-    },
-    "high-dividend-strategy": {
-      "description": "分析A股高股息策略，评估红利股的收益可持续性与长期回报。当用户询问高股息股票、红利策略、A股分红分析、现金分红覆盖率、中证红利指数成分股、股息率排名或长期收入型投资时使用此技能。",
-      "installed_as": "high-dividend-strategy",
-      "path": "skills/vendor/high-dividend-strategy",
-      "source": "vendor"
-    },
-    "himalaya": {
-      "description": "Himalaya CLI: IMAP/SMTP email from terminal.",
-      "installed_as": "himalaya",
-      "path": "skills/vendor/himalaya",
-      "source": "vendor"
-    },
-    "ideation": {
-      "description": "Generate project ideas via creative constraints.",
-      "installed_as": "ideation",
-      "path": "skills/vendor/ideation",
-      "source": "vendor"
-    },
-    "ielts-listening-review": {
-      "description": "Review IELTS Listening or dictation errors from transcripts, answers, and timestamps, then generate targeted replay drills and a validated Listening Error Notebook DOCX. Use when a learner asks why they missed listening answers, wants a dictation review, provides a transcript or answer key, or needs a focused listening repair plan.",
-      "installed_as": "ielts-listening-review",
-      "path": "skills/vendor/ielts-listening-review",
-      "source": "vendor"
-    },
-    "ielts-mock-review": {
-      "description": "Review a completed IELTS mock test with section scores, timing, question-level results, writing, and speaking evidence, then choose a small set of high-impact repair tasks. Use when a learner asks to analyse a mock exam, interpret score changes, identify the biggest weaknesses, or make a post-mock study plan.",
-      "installed_as": "ielts-mock-review",
-      "path": "skills/vendor/ielts-mock-review",
-      "source": "vendor"
-    },
-    "ielts-practice": {
-      "description": "读取 IELTS Buddy 公开预测命中并提供对应做题入口；在已授权时也可使用个人题库与练习记录，交接到浏览器完成作答并在完成后复盘。适用于查询最新预测命中、“我要刷题”、继续练习、开始阅读或听力练习，以及完成后的客观题结果复盘。",
-      "installed_as": "ielts-practice",
-      "path": "skills/vendor/ielts-practice",
-      "source": "vendor"
-    },
-    "ielts-reading-review": {
-      "description": "Review IELTS Reading mistakes with passage evidence and paraphrase bridges, extract useful passage vocabulary, and create validated DOCX evidence maps or lexicons. Use when a learner provides a Reading passage, questions, answers, result, or DOCX and asks for error analysis, answer evidence, paraphrase explanation, distractor analysis, or a vocabulary handout.",
-      "installed_as": "ielts-reading-review",
-      "path": "skills/vendor/ielts-reading-review",
-      "source": "vendor"
-    },
-    "ielts-speaking-coach": {
-      "description": "Run IELTS Speaking Part 1, Part 2, or Part 3 coaching, map real personal stories to cue-card coverage, build reusable topic material, and generate a validated speaking report. Use when a learner asks for speaking practice, mock interview feedback, transcript review, topic selection, topic coverage, answer development, reusable phrases, or a speaking DOCX report.",
-      "installed_as": "ielts-speaking-coach",
-      "path": "skills/vendor/ielts-speaking-coach",
-      "source": "vendor"
-    },
-    "ielts-study-plan": {
-      "description": "Build an evidence-backed IELTS baseline, daily study session, cross-skill next action, weekly review, course route, or learning-resource plan for Chinese learners. Use when the learner asks what to study today, needs a plan, wants to turn a practice, speaking, writing, or vocabulary result into the next task, review progress, diagnose a starting level, choose the next practice, or receive a printable learning workbook.",
-      "installed_as": "ielts-study-plan",
-      "path": "skills/vendor/ielts-study-plan",
-      "source": "vendor"
-    },
-    "ielts-vocabulary-coach": {
-      "description": "Run IELTS vocabulary practice with active recall, hints, collocations, spaced review, and a validated weekly vocabulary DOCX sheet. Use when a learner asks to learn words, review a wordbook, practise collocations, build vocabulary cards, review weak words, or create a printable vocabulary report.",
-      "installed_as": "ielts-vocabulary-coach",
-      "path": "skills/vendor/ielts-vocabulary-coach",
-      "source": "vendor"
-    },
-    "ielts-writing-review": {
-      "description": "Plan, review, or revise IELTS Academic Writing Task 1 or Task 2, including prompt analysis, outline design, self-check, Chinese teacher-style feedback, and validated DOCX reports. Use when a learner provides an essay, prompt, chart, map, process diagram, or revised draft and asks for a writing plan, scoring reference, correction, rewrite guidance, or a Word review document.",
-      "installed_as": "ielts-writing-review",
-      "path": "skills/vendor/ielts-writing-review",
-      "source": "vendor"
-    },
-    "insider-trading": {
-      "description": "Track and analyze insider buying/selling activity from SEC Form 4 filings",
-      "installed_as": "insider-trading",
-      "path": "skills/vendor/insider-trading",
-      "source": "vendor"
-    },
-    "insider-trading-analyzer": {
-      "description": "分析A股市场董监高及重要股东增减持行为，识别具有显著管理层信心信号的公司。当用户询问董监高增持、大股东买入、内部人交易分析、管理层增持信号、股东增减持动态时使用此技能。",
-      "installed_as": "insider-trading-analyzer",
-      "path": "skills/vendor/insider-trading-analyzer",
-      "source": "vendor"
-    },
-    "kanban": {
-      "description": "Multi-agent Kanban workflow: orchestrator decomposition playbook and worker pitfalls/patterns. For orchestrator profiles use the orchestrator guide; for worker profiles use the worker guide.",
-      "installed_as": "kanban",
-      "path": "skills/vendor/kanban",
-      "source": "vendor"
-    },
-    "language-demand-analyser": {
-      "description": "Analyse the language demands of a classroom task to identify barriers for EAL and multilingual learners. Use when adapting tasks, planning support, or assessing linguistic accessibility.",
-      "installed_as": "language-demand-analyser",
-      "path": "skills/vendor/language-demand-analyser",
-      "source": "vendor"
-    },
-    "meeting-action-items": {
-      "description": "Turn meeting notes into cited decisions, owners, tickets.",
-      "installed_as": "meeting-action-items",
-      "path": "skills/vendor/meeting-action-items",
-      "source": "vendor"
-    },
-    "minecraft-modpack-server": {
-      "description": "Host modded Minecraft servers (CurseForge, Modrinth).",
-      "installed_as": "minecraft-modpack-server",
-      "path": "skills/vendor/minecraft-modpack-server",
-      "source": "vendor"
-    },
-    "omv-manage": {
-      "description": "Manage an OpenMediaVault (OMV) host: shared folders, SMB/NFS/FTP/SSH services, RAID/mdadm/LUKS/SMART, OMV-Extras / Docker / Plex / qBittorrent, plus systemd, cron, firewall, rsync, auto-mount, and UPS. Use when the user asks to operate, configure, troubleshoot, or automate anything on an OMV box (Web UI, omv-rpc / omv-confdbadm via SSH, or hybrid). Triggers include phrases like \"OMV\", \"OpenMediaVault\", \"共享文件夹\", \"SMB\", \"NFS\", \"RAID\", \"快照\", \"Docker 插件\", \"OMV-Extras\", \"omv-rpc\", \"config.xml\", \"systemd 服务\".",
-      "installed_as": "omv-manage",
-      "path": "skills/vendor/omv-manage",
-      "source": "vendor"
-    },
-    "pdf": {
-      "description": "Create, read, merge, fill, and secure PDF files.",
-      "installed_as": "pdf",
-      "path": "skills/vendor/pdf",
-      "source": "vendor"
-    },
-    "pdf-text-extraction": {
-      "description": "Bulk PDF-to-text with triage and selective OCR.",
-      "installed_as": "pdf-text-extraction",
-      "path": "skills/vendor/pdf-text-extraction",
-      "source": "vendor"
-    },
-    "pixel-art": {
+    "design/pixel-art": {
       "description": "Pixel art w/ era palettes (NES, Game Boy, PICO-8).",
+      "domain": "design",
       "installed_as": "pixel-art",
-      "path": "skills/vendor/pixel-art",
-      "source": "vendor"
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/design/pixel-art",
+      "source": "file"
     },
-    "pokemon-player": {
-      "description": "Play Pokemon via headless emulator + RAM reads.",
-      "installed_as": "pokemon-player",
-      "path": "skills/vendor/pokemon-player",
-      "source": "vendor"
-    },
-    "portfolio-health-check": {
-      "description": "诊断现有投资组合的风险和低效问题。当用户要求审查、审计或压力测试其当前持仓，评估组合集中度，检查因子暴露，评估相关性风险，识别隐性偏移，或获取其已有组合的改进建议时使用此技能。",
-      "installed_as": "portfolio-health-check",
-      "path": "skills/vendor/portfolio-health-check",
-      "source": "vendor"
-    },
-    "quant-factor-screener": {
-      "description": "使用正式因子模型进行系统化多因子A股筛选，识别具有有利因子暴露的个股。当用户询问因子投资、多因子筛选、价值/动量/质量因子分析、因子打分、因子择时、Smart Beta策略、量化选股或基于学术因子的系统化选股时使用此技能。",
-      "installed_as": "quant-factor-screener",
-      "path": "skills/vendor/quant-factor-screener",
-      "source": "vendor"
-    },
-    "risk-adjusted-return-optimizer": {
-      "description": "为中国投资者构建风险调整后收益最优的A股投资组合，根据资金规模、风险偏好和投资期限进行资产配置。当用户询问构建投资组合、资产配置、A股组合优化、仓位管理、再平衡策略，或要求根据特定金额和风险偏好提供组合构建建议时使用此技能。",
-      "installed_as": "risk-adjusted-return-optimizer",
-      "path": "skills/vendor/risk-adjusted-return-optimizer",
-      "source": "vendor"
-    },
-    "scaffolded-task-modifier": {
-      "description": "Modify a classroom task with language scaffolds that preserve cognitive demand for EAL learners. Use when adapting existing tasks for students at different English proficiency levels.",
-      "installed_as": "scaffolded-task-modifier",
-      "path": "skills/vendor/scaffolded-task-modifier",
-      "source": "vendor"
-    },
-    "sector-rotation-detector": {
-      "description": "通过分析中国宏观经济指标和经济周期定位，识别A股市场行业轮动信号，判断未来6–12个月哪些行业可能跑赢或跑输大盘。当用户询问行业轮动、宏观驱动的板块配置、经济周期投资、超配或低配哪些行业、利率/通胀对行业的影响、或A股宏观投资策略时使用此技能。",
-      "installed_as": "sector-rotation-detector",
-      "path": "skills/vendor/sector-rotation-detector",
-      "source": "vendor"
-    },
-    "sentiment-reality-gap": {
-      "description": "识别A股市场中被过度看空但基本面稳健的逆向投资机会。当用户询问逆向投资、超跌反弹、市场错误定价、情绪与基本面背离、被市场误解的公司、负面情绪过度反应、或者寻找\"市场错杀\"机会时使用此技能。",
-      "installed_as": "sentiment-reality-gap",
-      "path": "skills/vendor/sentiment-reality-gap",
-      "source": "vendor"
-    },
-    "sheltered-instruction-lesson-modifier": {
-      "description": "Modify a lesson plan using SIOP sheltered instruction principles to support language learners across all four skills. Use when planning lessons for classes that include EAL students.",
-      "installed_as": "sheltered-instruction-lesson-modifier",
-      "path": "skills/vendor/sheltered-instruction-lesson-modifier",
-      "source": "vendor"
-    },
-    "skill-maker": {
-      "description": "Teaches how to author high-quality Agent Skills (SKILL.md): discovery-oriented descriptions, frontmatter, structure, progressive disclosure, and verification. Use when creating or refactoring skills for AI agents; when the user asks how to write skills, SKILL.md format, or skill naming and permissions.",
-      "installed_as": "skill-maker",
-      "path": "skills/vendor/skill-maker",
-      "source": "vendor"
-    },
-    "small-cap-growth-identifier": {
-      "description": "识别A股市场中被忽视的小市值高成长公司。当用户询问小盘成长股、低市值高增长公司、被忽略的小盘股、专精特新企业、或要求筛选市值小但增长快的A股时使用此技能。",
-      "installed_as": "small-cap-growth-identifier",
-      "path": "skills/vendor/small-cap-growth-identifier",
-      "source": "vendor"
-    },
-    "stock-eval": {
-      "description": "Evaluate US stocks with comprehensive fundamental and valuation analysis",
-      "installed_as": "stock-eval",
-      "path": "skills/vendor/stock-eval",
-      "source": "vendor"
-    },
-    "stock-watcher": {
-      "description": "Manage and monitor a personal stock watchlist with support for adding, removing, listing stocks, and summarizing their recent performance using data from 10jqka.com.cn. Use when the user wants to track specific stocks, get performance summaries, or manage their watchlist.",
-      "installed_as": "stock-watcher",
-      "path": "skills/vendor/stock-watcher",
-      "source": "vendor"
-    },
-    "suitability-report-generator": {
-      "description": "生成机构级投资适当性报告，包括投资理由、风险披露和客户适当性评估。当用户要求记录投资决策、创建合规报告、生成风险披露文件、准备面向客户的投资理由说明、撰写适当性评估报告，或为投资建议或组合出具信义义务文档时使用此技能。",
-      "installed_as": "suitability-report-generator",
-      "path": "skills/vendor/suitability-report-generator",
-      "source": "vendor"
-    },
-    "tech-hype-vs-fundamentals": {
-      "description": "对比分析A股科技公司的估值泡沫与基本面，识别被高估和被低估的科技股。当用户询问科技股估值、A股科技泡沫、科创板估值是否合理、AI/芯片/新能源等热门科技板块的估值分析、或对比科技公司增长与估值时使用此技能。",
-      "installed_as": "tech-hype-vs-fundamentals",
-      "path": "skills/vendor/tech-hype-vs-fundamentals",
-      "source": "vendor"
-    },
-    "technical-analysis": {
-      "description": "Technical analysis of US stocks using charts and indicators",
-      "installed_as": "technical-analysis",
-      "path": "skills/vendor/technical-analysis",
-      "source": "vendor"
-    },
-    "touchdesigner-mcp": {
+    "design/touchdesigner-mcp": {
       "description": "Control TouchDesigner via twozero MCP.",
+      "domain": "design",
       "installed_as": "touchdesigner-mcp",
-      "path": "skills/vendor/touchdesigner-mcp",
-      "source": "vendor"
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/design/touchdesigner-mcp",
+      "source": "file"
     },
-    "undervalued-stock-screener": {
-      "description": "扫描A股市场，筛选基本面强劲但市值被低估的上市公司。当用户询问低估值股票、价值投资筛选、A股便宜股票、低PE或低PB公司、基本面强但被低估的公司、或要求运行估值筛选器时使用此技能。",
-      "installed_as": "undervalued-stock-screener",
-      "path": "skills/vendor/undervalued-stock-screener",
-      "source": "vendor"
+    "documents/document-to-action-items": {
+      "description": "Extract cited obligations, deadlines, tasks from documents.",
+      "domain": "documents",
+      "installed_as": "document-to-action-items",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/documents/document-to-action-items",
+      "source": "file"
     },
-    "vocabulary-tiering-tool": {
-      "description": "Tier vocabulary from a text or topic into everyday, academic, and technical categories with teaching priorities. Use when pre-teaching vocabulary or identifying language barriers in a text.",
-      "installed_as": "vocabulary-tiering-tool",
-      "path": "skills/vendor/vocabulary-tiering-tool",
-      "source": "vendor"
+    "documents/docx": {
+      "description": "Create, read, edit, template, and review Word .docx files.",
+      "domain": "documents",
+      "installed_as": "docx",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/documents/docx",
+      "source": "file"
     },
-    "webhook-subscriptions": {
-      "description": "Webhook subscriptions: event-driven agent runs.",
-      "installed_as": "webhook-subscriptions",
-      "path": "skills/vendor/webhook-subscriptions",
-      "source": "vendor"
+    "documents/meeting-action-items": {
+      "description": "Turn meeting notes into cited decisions, owners, tickets.",
+      "domain": "documents",
+      "installed_as": "meeting-action-items",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/documents/meeting-action-items",
+      "source": "file"
     },
-    "xlsx": {
+    "documents/pdf": {
+      "description": "Create, read, merge, fill, and secure PDF files.",
+      "domain": "documents",
+      "installed_as": "pdf",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/documents/pdf",
+      "source": "file"
+    },
+    "documents/pdf-text-extraction": {
+      "description": "Bulk PDF-to-text with triage and selective OCR.",
+      "domain": "documents",
+      "installed_as": "pdf-text-extraction",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/documents/pdf-text-extraction",
+      "source": "file"
+    },
+    "documents/xlsx": {
       "description": "Create, read, edit Excel .xlsx workbooks and CSVs.",
+      "domain": "documents",
       "installed_as": "xlsx",
-      "path": "skills/vendor/xlsx",
-      "source": "vendor"
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/documents/xlsx",
+      "source": "file"
     },
-    "youtube-content": {
+    "education/academic-language-sentence-frame-generator": {
+      "description": "Generate tiered sentence frames for academic tasks that scaffold language production across proficiency levels. Use when EAL students need structured language support for classroom discourse.",
+      "domain": "education",
+      "installed_as": "academic-language-sentence-frame-generator",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/academic-language-sentence-frame-generator",
+      "source": "file"
+    },
+    "education/fluent-db-updater": {
+      "description": "Atomically update all 6 Fluent learner databases (learner-profile, progress, mistakes, mastery, spaced-repetition, session-log) at session end by calling .claude/hooks/update-db.py with a single JSON payload. Use at the end of every practice session — fluent-writing, fluent-vocab, fluent-speaking, fluent-reading, fluent-review, fluent-learn — to persist the session's errors, review results, new vocabulary, and session metadata.",
+      "domain": "education",
+      "installed_as": "fluent-db-updater",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-db-updater",
+      "source": "file"
+    },
+    "education/fluent-feedback-formatter": {
+      "description": "Canonical feedback template for every learner answer in the Fluent system — celebrate correct parts, correct mistakes with category and brief explanation, show the full correct version, score out of 10, and classify severity (🔴 critical / 🟡 moderate / 🟢 minor). Use in every practice session (fluent-writing, fluent-vocab, fluent-speaking, fluent-reading, fluent-review) immediately after the learner submits an answer.",
+      "domain": "education",
+      "installed_as": "fluent-feedback-formatter",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-feedback-formatter",
+      "source": "file"
+    },
+    "education/fluent-learn": {
+      "description": "Main adaptive language-learning session that mixes skills (writing, speaking, vocabulary, reading) and exercise types based on the learner's current level, weak patterns, and due reviews. Triggered only when the learner types /fluent-learn. Greets the learner, shows today's plan, asks what to practice, runs interleaved exercises one at a time, and updates all databases at the end.",
+      "domain": "education",
+      "installed_as": "fluent-learn",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-learn",
+      "source": "file"
+    },
+    "education/fluent-progress": {
+      "description": "Show the learner's language learning progress, statistics, mastery levels, streak, and achievements. Use when the learner asks \"how am I doing\", \"show my progress\", \"stats\", \"dashboard\", \"what's my streak\", \"how many words have I learned\", or invokes /fluent-progress. Read-only — safe to auto-invoke.",
+      "domain": "education",
+      "installed_as": "fluent-progress",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-progress",
+      "source": "file"
+    },
+    "education/fluent-reading": {
+      "description": "Run an interactive reading comprehension session with a short target-language text followed by main-idea, detail, vocabulary-in-context, inference, and true/false questions. Triggered only when the learner types /fluent-reading. Presents the text, waits for the learner to read, then asks questions one at a time with immediate feedback, and optionally adds new vocabulary to the spaced-repetition queue.",
+      "domain": "education",
+      "installed_as": "fluent-reading",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-reading",
+      "source": "file"
+    },
+    "education/fluent-review": {
+      "description": "Run today's spaced-repetition review queue — items scheduled by SM-2 that need reinforcement before the learner forgets them. Triggered only when the learner types /fluent-review. Pulls due items from spaced-repetition.review_queue.today, generates a targeted exercise for each, evaluates the response, updates SM-2 parameters, and reshelves items into the correct future queue.",
+      "domain": "education",
+      "installed_as": "fluent-review",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-review",
+      "source": "file"
+    },
+    "education/fluent-session-analyzer": {
+      "description": "Parse Fluent `/results/*.md` session files to extract error patterns, strengths, accuracy trends, and focus areas for the next session. Use when the tutor needs to analyze the learner's recent performance — planning the next lesson, recommending focus areas, or answering \"what should I practice next?\".",
+      "domain": "education",
+      "installed_as": "fluent-session-analyzer",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-session-analyzer",
+      "source": "file"
+    },
+    "education/fluent-setup": {
+      "description": "One-time interactive onboarding that creates the learner's personalized language-learning profile — name, target language, native language, current/target CEFR level, timeline, daily minutes, and learning goals. Triggered only when the learner types /fluent-setup. Also handles profile updates and resets for returning users. Must never auto-invoke because re-running can reset progress.",
+      "domain": "education",
+      "installed_as": "fluent-setup",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-setup",
+      "source": "file"
+    },
+    "education/fluent-sm2-calculator": {
+      "description": "SM-2 spaced-repetition algorithm reference for the Fluent language learning system. Use whenever the tutor schedules the next review of a vocabulary item, grammar rule, or error pattern — i.e. after every answered review question. Defines the 0-5 quality scale, interval formula, easiness-factor update, and mastery-level transitions that keep the spaced-repetition database correct.",
+      "domain": "education",
+      "installed_as": "fluent-sm2-calculator",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-sm2-calculator",
+      "source": "file"
+    },
+    "education/fluent-speaking": {
+      "description": "Run an interactive typed conversation session simulating spoken practice — free-flowing dialogue, role-plays, and opinion questions prioritizing communication over perfect grammar. Triggered only when the learner types /fluent-speaking. Asks questions one at a time in the target language, evaluates clarity and naturalness first and grammar second, and updates all databases at the end.",
+      "domain": "education",
+      "installed_as": "fluent-speaking",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-speaking",
+      "source": "file"
+    },
+    "education/fluent-vocab": {
+      "description": "Run an interactive vocabulary drill session with flashcard-style prompts, spaced repetition, and per-answer feedback. Triggered only when the learner types /fluent-vocab. Reads spaced-repetition / mistakes / mastery DBs to pick words, presents one word at a time, scores each answer, and calls fluent-db-updater at the end.",
+      "domain": "education",
+      "installed_as": "fluent-vocab",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-vocab",
+      "source": "file"
+    },
+    "education/fluent-writing": {
+      "description": "Run an interactive writing practice session (emails, letters, forms, short texts) with systematic error analysis, category-tagged corrections, and detailed feedback. Triggered only when the learner types /fluent-writing. Selects a scenario matched to mastery, lets the learner compose, then analyzes grammar, register, vocabulary, structure, and spelling before updating all databases.",
+      "domain": "education",
+      "installed_as": "fluent-writing",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/fluent-writing",
+      "source": "file"
+    },
+    "education/ielts-listening-review": {
+      "description": "Review IELTS Listening or dictation errors from transcripts, answers, and timestamps, then generate targeted replay drills and a validated Listening Error Notebook DOCX. Use when a learner asks why they missed listening answers, wants a dictation review, provides a transcript or answer key, or needs a focused listening repair plan.",
+      "domain": "education",
+      "installed_as": "ielts-listening-review",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/ielts-listening-review",
+      "source": "file"
+    },
+    "education/ielts-mock-review": {
+      "description": "Review a completed IELTS mock test with section scores, timing, question-level results, writing, and speaking evidence, then choose a small set of high-impact repair tasks. Use when a learner asks to analyse a mock exam, interpret score changes, identify the biggest weaknesses, or make a post-mock study plan.",
+      "domain": "education",
+      "installed_as": "ielts-mock-review",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/ielts-mock-review",
+      "source": "file"
+    },
+    "education/ielts-practice": {
+      "description": "读取 IELTS Buddy 公开预测命中并提供对应做题入口；在已授权时也可使用个人题库与练习记录，交接到浏览器完成作答并在完成后复盘。适用于查询最新预测命中、“我要刷题”、继续练习、开始阅读或听力练习，以及完成后的客观题结果复盘。",
+      "domain": "education",
+      "installed_as": "ielts-practice",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/ielts-practice",
+      "source": "file"
+    },
+    "education/ielts-reading-review": {
+      "description": "Review IELTS Reading mistakes with passage evidence and paraphrase bridges, extract useful passage vocabulary, and create validated DOCX evidence maps or lexicons. Use when a learner provides a Reading passage, questions, answers, result, or DOCX and asks for error analysis, answer evidence, paraphrase explanation, distractor analysis, or a vocabulary handout.",
+      "domain": "education",
+      "installed_as": "ielts-reading-review",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/ielts-reading-review",
+      "source": "file"
+    },
+    "education/ielts-speaking-coach": {
+      "description": "Run IELTS Speaking Part 1, Part 2, or Part 3 coaching, map real personal stories to cue-card coverage, build reusable topic material, and generate a validated speaking report. Use when a learner asks for speaking practice, mock interview feedback, transcript review, topic selection, topic coverage, answer development, reusable phrases, or a speaking DOCX report.",
+      "domain": "education",
+      "installed_as": "ielts-speaking-coach",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/ielts-speaking-coach",
+      "source": "file"
+    },
+    "education/ielts-study-plan": {
+      "description": "Build an evidence-backed IELTS baseline, daily study session, cross-skill next action, weekly review, course route, or learning-resource plan for Chinese learners. Use when the learner asks what to study today, needs a plan, wants to turn a practice, speaking, writing, or vocabulary result into the next task, review progress, diagnose a starting level, choose the next practice, or receive a printable learning workbook.",
+      "domain": "education",
+      "installed_as": "ielts-study-plan",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/ielts-study-plan",
+      "source": "file"
+    },
+    "education/ielts-vocabulary-coach": {
+      "description": "Run IELTS vocabulary practice with active recall, hints, collocations, spaced review, and a validated weekly vocabulary DOCX sheet. Use when a learner asks to learn words, review a wordbook, practise collocations, build vocabulary cards, review weak words, or create a printable vocabulary report.",
+      "domain": "education",
+      "installed_as": "ielts-vocabulary-coach",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/ielts-vocabulary-coach",
+      "source": "file"
+    },
+    "education/ielts-writing-review": {
+      "description": "Plan, review, or revise IELTS Academic Writing Task 1 or Task 2, including prompt analysis, outline design, self-check, Chinese teacher-style feedback, and validated DOCX reports. Use when a learner provides an essay, prompt, chart, map, process diagram, or revised draft and asks for a writing plan, scoring reference, correction, rewrite guidance, or a Word review document.",
+      "domain": "education",
+      "installed_as": "ielts-writing-review",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/ielts-writing-review",
+      "source": "file"
+    },
+    "education/language-demand-analyser": {
+      "description": "Analyse the language demands of a classroom task to identify barriers for EAL and multilingual learners. Use when adapting tasks, planning support, or assessing linguistic accessibility.",
+      "domain": "education",
+      "installed_as": "language-demand-analyser",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/language-demand-analyser",
+      "source": "file"
+    },
+    "education/scaffolded-task-modifier": {
+      "description": "Modify a classroom task with language scaffolds that preserve cognitive demand for EAL learners. Use when adapting existing tasks for students at different English proficiency levels.",
+      "domain": "education",
+      "installed_as": "scaffolded-task-modifier",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/scaffolded-task-modifier",
+      "source": "file"
+    },
+    "education/sheltered-instruction-lesson-modifier": {
+      "description": "Modify a lesson plan using SIOP sheltered instruction principles to support language learners across all four skills. Use when planning lessons for classes that include EAL students.",
+      "domain": "education",
+      "installed_as": "sheltered-instruction-lesson-modifier",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/sheltered-instruction-lesson-modifier",
+      "source": "file"
+    },
+    "education/vocabulary-tiering-tool": {
+      "description": "Tier vocabulary from a text or topic into everyday, academic, and technical categories with teaching priorities. Use when pre-teaching vocabulary or identifying language barriers in a text.",
+      "domain": "education",
+      "installed_as": "vocabulary-tiering-tool",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/education/vocabulary-tiering-tool",
+      "source": "file"
+    },
+    "finance/dcf-valuation": {
+      "description": "Discounted Cash Flow (DCF) intrinsic value modeling with sensitivity analysis",
+      "domain": "finance",
+      "installed_as": "dcf-valuation",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/dcf-valuation",
+      "source": "file"
+    },
+    "finance/earnings-call-analysis": {
+      "description": "Analyze earnings call transcripts for sentiment, key themes, and management tone",
+      "domain": "finance",
+      "installed_as": "earnings-call-analysis",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/earnings-call-analysis",
+      "source": "file"
+    },
+    "finance/esg-screener": {
+      "description": "从ESG（环境、社会、治理）视角筛选和分析A股上市公司，评估可持续发展实践、争议事件和负责任投资标准。当用户询问ESG投资、可持续投资、社会责任投资、绿色投资、碳足迹分析、公司治理评估、争议事件筛查、排除清单，或对公司或组合进行ESG评分时使用此技能。",
+      "domain": "finance",
+      "installed_as": "esg-screener",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/esg-screener",
+      "source": "file"
+    },
+    "finance/event-driven-detector": {
+      "description": "识别和分析可能创造定价偏差的A股公司事件，包括并购重组、资产注入、回购增持、管理层变更和指数调整。当用户询问并购重组机会、资产注入、股份回购分析、国企改革、指数调整交易、特殊事件投资或事件驱动策略时使用此技能。",
+      "domain": "finance",
+      "installed_as": "event-driven-detector",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/event-driven-detector",
+      "source": "file"
+    },
+    "finance/financial-statement-analyzer": {
+      "description": "对单个A股上市公司的财务报表进行深度分析，评估盈利质量、财务健康状况、财务造假风险和运营效率。当用户要求深入分析某家公司的财务报表、杜邦分析、盈利质量检查、资产负债表分析、现金流分析、Z值评分、M值评分、营运资本分析，或任何详细的单公司财务审视时使用此技能。",
+      "domain": "finance",
+      "installed_as": "financial-statement-analyzer",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/financial-statement-analyzer",
+      "source": "file"
+    },
+    "finance/findata-toolkit-cn": {
+      "description": "A股金融数据工具包。提供脚本获取A股实时行情、财务指标、董监高增减持、北向资金、宏观经济数据（LPR、CPI/PPI、PMI、社融、M2）。用于需要实时A股市场数据支撑投资分析时。所有数据源免费，无需API密钥。",
+      "domain": "finance",
+      "installed_as": "findata-toolkit-cn",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/findata-toolkit-cn",
+      "source": "file"
+    },
+    "finance/fundamental-analysis": {
+      "description": "Deep fundamental analysis of US stocks using financial statements",
+      "domain": "finance",
+      "installed_as": "fundamental-analysis",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/fundamental-analysis",
+      "source": "file"
+    },
+    "finance/high-dividend-strategy": {
+      "description": "分析A股高股息策略，评估红利股的收益可持续性与长期回报。当用户询问高股息股票、红利策略、A股分红分析、现金分红覆盖率、中证红利指数成分股、股息率排名或长期收入型投资时使用此技能。",
+      "domain": "finance",
+      "installed_as": "high-dividend-strategy",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/high-dividend-strategy",
+      "source": "file"
+    },
+    "finance/insider-trading": {
+      "description": "Track and analyze insider buying/selling activity from SEC Form 4 filings",
+      "domain": "finance",
+      "installed_as": "insider-trading",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/insider-trading",
+      "source": "file"
+    },
+    "finance/insider-trading-analyzer": {
+      "description": "分析A股市场董监高及重要股东增减持行为，识别具有显著管理层信心信号的公司。当用户询问董监高增持、大股东买入、内部人交易分析、管理层增持信号、股东增减持动态时使用此技能。",
+      "domain": "finance",
+      "installed_as": "insider-trading-analyzer",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/insider-trading-analyzer",
+      "source": "file"
+    },
+    "finance/portfolio-health-check": {
+      "description": "诊断现有投资组合的风险和低效问题。当用户要求审查、审计或压力测试其当前持仓，评估组合集中度，检查因子暴露，评估相关性风险，识别隐性偏移，或获取其已有组合的改进建议时使用此技能。",
+      "domain": "finance",
+      "installed_as": "portfolio-health-check",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/portfolio-health-check",
+      "source": "file"
+    },
+    "finance/quant-factor-screener": {
+      "description": "使用正式因子模型进行系统化多因子A股筛选，识别具有有利因子暴露的个股。当用户询问因子投资、多因子筛选、价值/动量/质量因子分析、因子打分、因子择时、Smart Beta策略、量化选股或基于学术因子的系统化选股时使用此技能。",
+      "domain": "finance",
+      "installed_as": "quant-factor-screener",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/quant-factor-screener",
+      "source": "file"
+    },
+    "finance/risk-adjusted-return-optimizer": {
+      "description": "为中国投资者构建风险调整后收益最优的A股投资组合，根据资金规模、风险偏好和投资期限进行资产配置。当用户询问构建投资组合、资产配置、A股组合优化、仓位管理、再平衡策略，或要求根据特定金额和风险偏好提供组合构建建议时使用此技能。",
+      "domain": "finance",
+      "installed_as": "risk-adjusted-return-optimizer",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/risk-adjusted-return-optimizer",
+      "source": "file"
+    },
+    "finance/sector-rotation-detector": {
+      "description": "通过分析中国宏观经济指标和经济周期定位，识别A股市场行业轮动信号，判断未来6–12个月哪些行业可能跑赢或跑输大盘。当用户询问行业轮动、宏观驱动的板块配置、经济周期投资、超配或低配哪些行业、利率/通胀对行业的影响、或A股宏观投资策略时使用此技能。",
+      "domain": "finance",
+      "installed_as": "sector-rotation-detector",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/sector-rotation-detector",
+      "source": "file"
+    },
+    "finance/sentiment-reality-gap": {
+      "description": "识别A股市场中被过度看空但基本面稳健的逆向投资机会。当用户询问逆向投资、超跌反弹、市场错误定价、情绪与基本面背离、被市场误解的公司、负面情绪过度反应、或者寻找\"市场错杀\"机会时使用此技能。",
+      "domain": "finance",
+      "installed_as": "sentiment-reality-gap",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/sentiment-reality-gap",
+      "source": "file"
+    },
+    "finance/small-cap-growth-identifier": {
+      "description": "识别A股市场中被忽视的小市值高成长公司。当用户询问小盘成长股、低市值高增长公司、被忽略的小盘股、专精特新企业、或要求筛选市值小但增长快的A股时使用此技能。",
+      "domain": "finance",
+      "installed_as": "small-cap-growth-identifier",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/small-cap-growth-identifier",
+      "source": "file"
+    },
+    "finance/stock-eval": {
+      "description": "Evaluate US stocks with comprehensive fundamental and valuation analysis",
+      "domain": "finance",
+      "installed_as": "stock-eval",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/stock-eval",
+      "source": "file"
+    },
+    "finance/stock-watcher": {
+      "description": "Manage and monitor a personal stock watchlist with support for adding, removing, listing stocks, and summarizing their recent performance using data from 10jqka.com.cn. Use when the user wants to track specific stocks, get performance summaries, or manage their watchlist.",
+      "domain": "finance",
+      "installed_as": "stock-watcher",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/stock-watcher",
+      "source": "file"
+    },
+    "finance/suitability-report-generator": {
+      "description": "生成机构级投资适当性报告，包括投资理由、风险披露和客户适当性评估。当用户要求记录投资决策、创建合规报告、生成风险披露文件、准备面向客户的投资理由说明、撰写适当性评估报告，或为投资建议或组合出具信义义务文档时使用此技能。",
+      "domain": "finance",
+      "installed_as": "suitability-report-generator",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/suitability-report-generator",
+      "source": "file"
+    },
+    "finance/tech-hype-vs-fundamentals": {
+      "description": "对比分析A股科技公司的估值泡沫与基本面，识别被高估和被低估的科技股。当用户询问科技股估值、A股科技泡沫、科创板估值是否合理、AI/芯片/新能源等热门科技板块的估值分析、或对比科技公司增长与估值时使用此技能。",
+      "domain": "finance",
+      "installed_as": "tech-hype-vs-fundamentals",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/tech-hype-vs-fundamentals",
+      "source": "file"
+    },
+    "finance/technical-analysis": {
+      "description": "Technical analysis of US stocks using charts and indicators",
+      "domain": "finance",
+      "installed_as": "technical-analysis",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/technical-analysis",
+      "source": "file"
+    },
+    "finance/undervalued-stock-screener": {
+      "description": "扫描A股市场，筛选基本面强劲但市值被低估的上市公司。当用户询问低估值股票、价值投资筛选、A股便宜股票、低PE或低PB公司、基本面强但被低估的公司、或要求运行估值筛选器时使用此技能。",
+      "domain": "finance",
+      "installed_as": "undervalued-stock-screener",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/finance/undervalued-stock-screener",
+      "source": "file"
+    },
+    "lifestyle/minecraft-modpack-server": {
+      "description": "Host modded Minecraft servers (CurseForge, Modrinth).",
+      "domain": "lifestyle",
+      "installed_as": "minecraft-modpack-server",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/lifestyle/minecraft-modpack-server",
+      "source": "file"
+    },
+    "lifestyle/pokemon-player": {
+      "description": "Play Pokemon via headless emulator + RAM reads.",
+      "domain": "lifestyle",
+      "installed_as": "pokemon-player",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/lifestyle/pokemon-player",
+      "source": "file"
+    },
+    "media/youtube-content": {
       "description": "YouTube transcripts to summaries, threads, blogs.",
+      "domain": "media",
       "installed_as": "youtube-content",
-      "path": "skills/vendor/youtube-content",
-      "source": "vendor"
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/media/youtube-content",
+      "source": "file"
+    },
+    "productivity/browser-control": {
+      "description": "使用 node.js 来控制浏览器，例如打开网页截图，获取网页内容",
+      "domain": "productivity",
+      "installed_as": "browser-control",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/productivity/browser-control",
+      "source": "file"
+    },
+    "productivity/hermes-desktop-plugins": {
+      "description": "Write desktop app plugins that add UI panes and commands.",
+      "domain": "productivity",
+      "installed_as": "hermes-desktop-plugins",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/productivity/hermes-desktop-plugins",
+      "source": "file"
+    },
+    "productivity/himalaya": {
+      "description": "Himalaya CLI: IMAP/SMTP email from terminal.",
+      "domain": "productivity",
+      "installed_as": "himalaya",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/productivity/himalaya",
+      "source": "file"
+    },
+    "productivity/omv-manage": {
+      "description": "Manage an OpenMediaVault (OMV) host: shared folders, SMB/NFS/FTP/SSH services, RAID/mdadm/LUKS/SMART, OMV-Extras / Docker / Plex / qBittorrent, plus systemd, cron, firewall, rsync, auto-mount, and UPS. Use when the user asks to operate, configure, troubleshoot, or automate anything on an OMV box (Web UI, omv-rpc / omv-confdbadm via SSH, or hybrid). Triggers include phrases like \"OMV\", \"OpenMediaVault\", \"共享文件夹\", \"SMB\", \"NFS\", \"RAID\", \"快照\", \"Docker 插件\", \"OMV-Extras\", \"omv-rpc\", \"config.xml\", \"systemd 服务\".",
+      "domain": "productivity",
+      "installed_as": "omv-manage",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/productivity/omv-manage",
+      "source": "file"
+    },
+    "productivity/webhook-subscriptions": {
+      "description": "Webhook subscriptions: event-driven agent runs.",
+      "domain": "productivity",
+      "installed_as": "webhook-subscriptions",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/productivity/webhook-subscriptions",
+      "source": "file"
+    },
+    "shared/ai-hallucination-fact-check-protocol": {
+      "description": "Design a fact-checking protocol for AI-generated text, extending SIFT with AI-specific adaptations for hallucination detection. Use when students need to verify AI claims and citations.",
+      "domain": "shared",
+      "installed_as": "ai-hallucination-fact-check-protocol",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/shared/ai-hallucination-fact-check-protocol",
+      "source": "file"
+    },
+    "shared/ai-socratic-dialogue-designer": {
+      "description": "Design a multi-round questioning sequence for interrogating AI chatbot answers, tracking how responses shift and distinguishing genuine updates from sycophantic capitulation. Use when teaching students to probe AI critically.",
+      "domain": "shared",
+      "installed_as": "ai-socratic-dialogue-designer",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/shared/ai-socratic-dialogue-designer",
+      "source": "file"
+    },
+    "shared/find-skill-codex": {
+      "description": "Find Codex skills across local and public registries.",
+      "domain": "shared",
+      "installed_as": "find-skill",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "local"
+      },
+      "path": "skills/shared/find-skill-codex",
+      "source": "file"
+    },
+    "shared/find-skill-hermes": {
+      "description": "Find and install skills from configured registries.",
+      "domain": "shared",
+      "installed_as": "find-skill",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "local"
+      },
+      "path": "skills/shared/find-skill-hermes",
+      "source": "file"
+    },
+    "shared/ideation": {
+      "description": "Generate project ideas via creative constraints.",
+      "domain": "shared",
+      "installed_as": "ideation",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/shared/ideation",
+      "source": "file"
+    },
+    "shared/kanban": {
+      "description": "Multi-agent Kanban workflow: orchestrator decomposition playbook and worker pitfalls/patterns. For orchestrator profiles use the orchestrator guide; for worker profiles use the worker guide.",
+      "domain": "shared",
+      "installed_as": "kanban",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/shared/kanban",
+      "source": "file"
+    },
+    "shared/skill-converter": {
+      "description": "Convert Codex, OpenClaw, or generic skills to Hermes format.",
+      "domain": "shared",
+      "installed_as": "skill-converter",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "local"
+      },
+      "path": "skills/shared/skill-converter",
+      "source": "file"
+    },
+    "shared/skill-maker": {
+      "description": "Teaches how to author high-quality Agent Skills (SKILL.md): discovery-oriented descriptions, frontmatter, structure, progressive disclosure, and verification. Use when creating or refactoring skills for AI agents; when the user asks how to write skills, SKILL.md format, or skill naming and permissions.",
+      "domain": "shared",
+      "installed_as": "skill-maker",
+      "origin": {
+        "note": "Migrated into the domain layout.",
+        "type": "vendor"
+      },
+      "path": "skills/shared/skill-maker",
+      "source": "file"
     }
   }
 }

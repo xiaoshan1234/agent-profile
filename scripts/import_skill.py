@@ -24,6 +24,7 @@ from repo_lib import (
     role_manifest,
     skill_metadata,
     utc_stamp,
+    validate_skill_id,
     validate_single_segment,
     write_json_atomic,
 )
@@ -169,13 +170,13 @@ def import_skill(
     ref: str,
     git_path: Optional[str],
     hermes_identifier: Optional[str],
-    kind: Optional[str],
+    origin_kind: Optional[str],
     install_as: Optional[str],
     force: bool,
     common: bool,
     role: Optional[str],
 ) -> None:
-    skill_id = validate_single_segment(skill_id, "skill id")
+    domain, skill_name, skill_id = validate_skill_id(skill_id)
     modes = sum(bool(value) for value in (from_dir, git, hermes_identifier))
     if modes != 1:
         raise RepoError("Choose exactly one source: --from-dir, --git, or --hermes-identifier")
@@ -194,6 +195,8 @@ def import_skill(
     if hermes_identifier:
         entry: Dict[str, Any] = {
             "source": "hermes",
+            "domain": domain,
+            "origin": {"type": "hermes"},
             "identifier": hermes_identifier.strip(),
             "installed_as": explicit_install_as or skill_id,
             "description": "Remote Hermes registry skill.",
@@ -202,10 +205,10 @@ def import_skill(
         print(f"registered Hermes registry skill {skill_id}: {hermes_identifier}")
         return
 
-    selected_kind = kind or ("local" if from_dir else "vendor")
-    if selected_kind not in {"local", "vendor"}:
-        raise RepoError("--kind must be local or vendor")
-    destination = repo_root / "skills" / selected_kind / skill_id
+    selected_origin = origin_kind or ("local" if from_dir else "vendor")
+    if selected_origin not in {"local", "vendor"}:
+        raise RepoError("--origin must be local or vendor")
+    destination = repo_root / "skills" / domain / skill_name
 
     with tempfile.TemporaryDirectory(prefix="skill-import-") as temp_name:
         temp_dir = Path(temp_name)
@@ -223,13 +226,20 @@ def import_skill(
         _replace_with_copy(source, destination, repo_root)
 
     entry = {
-        "source": selected_kind,
+        "source": "file",
+        "domain": domain,
         "path": relative_display_path(repo_root, destination),
         "installed_as": explicit_install_as or metadata["name"],
         "description": metadata["description"],
+        "origin": {"type": selected_origin},
     }
     if git:
-        entry["origin"] = {"repo": git, "ref": ref, "path": git_path}
+        entry["origin"] = {
+            "type": "vendor",
+            "repo": git,
+            "ref": ref,
+            "path": git_path,
+        }
     _register(repo_root, skill_id, entry, common=common, role=role)
     print(f"imported {skill_id} -> {destination}")
     print("Run ./scripts/rebuild-catalog.py to refresh generated role indexes.")
@@ -239,13 +249,17 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description="Import a self-authored directory or GitHub skill into the repository."
     )
-    parser.add_argument("--id", required=True, help="Stable catalog id")
+    parser.add_argument("--id", required=True, help="Stable catalog id as <domain>/<name>")
     parser.add_argument("--from-dir", help="Self-authored local skill directory")
     parser.add_argument("--git", help="GitHub repository as owner/repo")
     parser.add_argument("--ref", default="main", help="Git ref for --git")
     parser.add_argument("--git-path", help="Skill directory inside the GitHub repository")
     parser.add_argument("--hermes-identifier", help="Pin a skill by Hermes registry identifier")
-    parser.add_argument("--kind", choices=["local", "vendor"], help="Local source bucket")
+    parser.add_argument(
+        "--origin",
+        choices=["local", "vendor"],
+        help="Origin metadata (default: local for --from-dir, vendor for --git)",
+    )
     parser.add_argument("--install-as", help="Installed directory name")
     parser.add_argument("--force", action="store_true", help="Replace an existing catalog id")
     parser.add_argument("--common", action="store_true", help="Add to every role")
@@ -260,7 +274,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             ref=args.ref,
             git_path=args.git_path,
             hermes_identifier=args.hermes_identifier,
-            kind=args.kind,
+            origin_kind=args.origin,
             install_as=args.install_as,
             force=args.force,
             common=args.common,

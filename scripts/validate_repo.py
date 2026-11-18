@@ -48,6 +48,8 @@ def validate(root: Path, *, check_generated: bool) -> int:
             for skill_id in [*common, *manifest.get("skills", [])]:
                 if str(skill_id) not in catalog:
                     errors.append(f"{role}: unknown skill id {skill_id}")
+                if manifest.get("schema") == 2 and "/" not in str(skill_id):
+                    errors.append(f"{role}: schema-v2 skill ids must be <domain>/<name>")
             selected = selected_skill_ids(root, role)
             entries = [
                 (skill_id, resolve_catalog_entry(root, catalog, skill_id))
@@ -56,8 +58,12 @@ def validate(root: Path, *, check_generated: bool) -> int:
             ]
             ensure_unique_installed_names(entries)
             soul = manifest.get("soul", {})
-            if not isinstance(soul, dict):
-                errors.append(f"{role}: soul must be an object")
+            if isinstance(soul, str):
+                path = role_dir / soul
+                if not path.is_file():
+                    errors.append(f"{role}: missing SOUL file {path}")
+            elif not isinstance(soul, dict):
+                errors.append(f"{role}: soul must be a path string or legacy object")
             elif soul.get("mode") == "file":
                 path = role_dir / str(soul.get("file", ""))
                 if not path.is_file():

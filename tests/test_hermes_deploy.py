@@ -56,18 +56,17 @@ class HermesDeployTest(unittest.TestCase):
         self._write_skill("local", "domain-skill", "Role-specific workflow.")
         role = self.root / "roles" / "coach"
         role.mkdir(parents=True)
-        (role / "PERSONA.md").write_text("# Coach\n\nPersona.\n", encoding="utf-8")
-        (role / "USAGE.md").write_text("# Coach usage\n\nUsage.\n", encoding="utf-8")
+        (role / "SOUL.md").write_text(
+            "# Coach\n\nPersona.\n\n---\n\n# Coach usage\n\nUsage.\n",
+            encoding="utf-8",
+        )
         (role / "role.json").write_text(
             json.dumps(
                 {
-                    "schema": 1,
+                    "schema": 2,
                     "name": "coach",
                     "description": "Test coach role.",
-                    "soul": {
-                        "mode": "compose",
-                        "files": ["PERSONA.md", "USAGE.md"],
-                    },
+                    "soul": "SOUL.md",
                     "skills": ["domain-skill"],
                 }
             ),
@@ -163,6 +162,65 @@ class HermesDeployTest(unittest.TestCase):
         backups = list((profile / ".role-deploy" / "backups").rglob("SKILL.md"))
         self.assertEqual(len(backups), 1)
         self.assertEqual(backups[0].read_text(encoding="utf-8"), "local modification\n")
+
+    @mock.patch.object(deploy_hermes.subprocess, "run")
+    def test_parts_skills_only_preserves_existing_soul(self, run) -> None:
+        profile = self.hermes_home / "profiles" / "coach"
+        (profile / "skills").mkdir(parents=True)
+        (profile / "SOUL.md").write_text("Existing SOUL\n", encoding="utf-8")
+
+        with mock.patch.dict(
+            os.environ,
+            {
+                "HERMES_HOME": str(self.hermes_home),
+                "HERMES_BIN": str(self.fake_hermes),
+            },
+        ):
+            deploy_hermes.deploy(
+                self.root,
+                self._options(parts="skills", existing_only=True),
+            )
+
+        run.assert_not_called()
+        self.assertEqual((profile / "SOUL.md").read_text(encoding="utf-8"), "Existing SOUL\n")
+        self.assertTrue((profile / "skills" / "domain-skill" / "SKILL.md").is_file())
+
+    @mock.patch.object(deploy_hermes.subprocess, "run")
+    def test_existing_only_rejects_missing_profile(self, run) -> None:
+        with mock.patch.dict(
+            os.environ,
+            {
+                "HERMES_HOME": str(self.hermes_home),
+                "HERMES_BIN": str(self.fake_hermes),
+            },
+        ):
+            with self.assertRaisesRegex(deploy_hermes.RepoError, "Profile does not exist"):
+                deploy_hermes.deploy(
+                    self.root,
+                    self._options(parts="skills", existing_only=True),
+                )
+        run.assert_not_called()
+
+    @mock.patch.object(deploy_hermes.subprocess, "run")
+    def test_parts_soul_only_does_not_install_role_skills(self, run) -> None:
+        profile = self.hermes_home / "profiles" / "coach"
+        profile.mkdir(parents=True)
+
+        with mock.patch.dict(
+            os.environ,
+            {
+                "HERMES_HOME": str(self.hermes_home),
+                "HERMES_BIN": str(self.fake_hermes),
+            },
+        ):
+            deploy_hermes.deploy(
+                self.root,
+                self._options(parts="soul", existing_only=True),
+            )
+
+        run.assert_not_called()
+        self.assertIn("Persona.", (profile / "SOUL.md").read_text(encoding="utf-8"))
+        self.assertFalse((profile / "skills" / "domain-skill").exists())
 
 
 if __name__ == "__main__":

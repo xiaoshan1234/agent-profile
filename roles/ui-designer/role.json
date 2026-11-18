@@ -1,13 +1,7 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "ui-designer",
   "description": "Design interfaces from real design systems, extracting tokens and producing implementation-ready components.",
-  "soul": {
-    "mode": "compose",
-    "files": [
-      "PERSONA.md",
-      "USAGE.md"
-    ]
-  },
+  "soul": "SOUL.md",
   "skills": []
 }

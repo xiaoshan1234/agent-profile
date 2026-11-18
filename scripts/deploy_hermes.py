@@ -38,6 +38,8 @@ class DeployOptions:
     no_alias: bool = False
     update_skills: bool = False
     dry_run: bool = False
+    parts: str = "all"
+    existing_only: bool = False
 
 
 def _hermes_root() -> Path:
@@ -188,6 +190,12 @@ def _resolve_soul(
     if value == "none":
         return None, None
     if value == "role":
+        configured = manifest.get("soul")
+        if isinstance(configured, str):
+            source = role_dir / configured
+            if not source.is_file():
+                raise RepoError(f"SOUL source file not found: {source}")
+            return configured, source.read_text(encoding="utf-8-sig").rstrip() + "\n"
         label, files = _role_soul_files(role_dir, manifest)
         if not files:
             return None, None
@@ -250,12 +258,23 @@ def deploy(repo_root: Path, options: DeployOptions) -> int:
     profile_name = validate_profile_name(options.profile or options.role)
     profile_dir = _hermes_root() / "profiles" / profile_name
     profile_exists = profile_dir.is_dir()
+    if options.existing_only and not profile_exists:
+        raise RepoError(f"Profile does not exist: {profile_dir}")
+    if options.parts not in {"all", "soul", "skills"}:
+        raise RepoError(f"Unsupported deployment parts: {options.parts}")
     description = _description(options, manifest)
-    soul_label, soul_content = _resolve_soul(repo_root, role_dir, manifest, options.soul)
+    deploy_soul = options.parts in {"all", "soul"}
+    deploy_skills = options.parts in {"all", "skills"}
+    if deploy_soul:
+        soul_label, soul_content = _resolve_soul(
+            repo_root, role_dir, manifest, options.soul
+        )
+    else:
+        soul_label, soul_content = None, None
 
     resolved: List[Tuple[str, Dict[str, Any]]] = [
         (skill_id, resolve_catalog_entry(repo_root, catalog, skill_id))
-        for skill_id in manifest["skills"]
+        for skill_id in (manifest["skills"] if deploy_skills else [])
     ]
     ensure_unique_installed_names(resolved)
 
@@ -272,6 +291,7 @@ def deploy(repo_root: Path, options: DeployOptions) -> int:
     print(f"Home:      {profile_dir}")
     print(f"Profile:   {'exists; creation skipped' if profile_exists else 'will be created'}")
     print(f"SOUL:      {soul_label or 'do not change'}")
+    print(f"Parts:     {options.parts}")
     print(f"Skills:    {len(resolved)} selected")
 
     if options.dry_run:
@@ -312,51 +332,52 @@ def deploy(repo_root: Path, options: DeployOptions) -> int:
                 f"Hermes reported success but the profile directory is missing: {profile_dir}"
             )
 
-    skills_root = profile_dir / "skills"
-    skills_root.mkdir(parents=True, exist_ok=True)
     summary: Dict[str, int] = {}
-    for skill_id, entry in resolved:
-        destination = skills_root / entry["installed_as"]
-        if entry["source"] in {"local", "vendor"}:
-            status = _install_skill_tree(
-                Path(entry["_path"]),
-                destination,
-                profile_dir,
-                update=options.update_skills,
-            )
-        else:
-            if destination.is_dir() and not options.update_skills:
-                status = "preserved"
-            elif destination.is_dir():
-                command = _profile_command(
-                    profile_name,
-                    str(hermes_bin),
-                    "skills",
-                    "update",
-                    entry["installed_as"],
-                    "--force",
+    if deploy_skills:
+        skills_root = profile_dir / "skills"
+        skills_root.mkdir(parents=True, exist_ok=True)
+        for skill_id, entry in resolved:
+            destination = skills_root / entry["installed_as"]
+            if entry["source"] in {"local", "vendor", "file"}:
+                status = _install_skill_tree(
+                    Path(entry["_path"]),
+                    destination,
+                    profile_dir,
+                    update=options.update_skills,
                 )
-                _run(command, dry_run=False, cwd=repo_root)
-                status = "updated"
             else:
-                command = _profile_command(
-                    profile_name,
-                    str(hermes_bin),
-                    "skills",
-                    "install",
-                    str(entry["identifier"]),
-                    "--name",
-                    entry["installed_as"],
-                    "--yes",
-                )
-                if entry.get("category"):
-                    command.extend(["--category", str(entry["category"])])
-                _run(command, dry_run=False, cwd=repo_root)
-                status = "installed"
-        summary[status] = summary.get(status, 0) + 1
-        print(f"  {status:<9} {skill_id} -> {destination}")
+                if destination.is_dir() and not options.update_skills:
+                    status = "preserved"
+                elif destination.is_dir():
+                    command = _profile_command(
+                        profile_name,
+                        str(hermes_bin),
+                        "skills",
+                        "update",
+                        entry["installed_as"],
+                        "--force",
+                    )
+                    _run(command, dry_run=False, cwd=repo_root)
+                    status = "updated"
+                else:
+                    command = _profile_command(
+                        profile_name,
+                        str(hermes_bin),
+                        "skills",
+                        "install",
+                        str(entry["identifier"]),
+                        "--name",
+                        entry["installed_as"],
+                        "--yes",
+                    )
+                    if entry.get("category"):
+                        command.extend(["--category", str(entry["category"])])
+                    _run(command, dry_run=False, cwd=repo_root)
+                    status = "installed"
+            summary[status] = summary.get(status, 0) + 1
+            print(f"  {status:<9} {skill_id} -> {destination}")
 
-    soul_status = _write_soul(profile_dir, soul_content)
+    soul_status = _write_soul(profile_dir, soul_content) if deploy_soul else "untouched"
     print(f"  soul      {soul_status}")
     print(
         "Summary: "
@@ -372,6 +393,17 @@ def parse_args(argv: Optional[List[str]] = None) -> DeployOptions:
     )
     parser.add_argument("role", help="Role directory name under roles/")
     parser.add_argument("--profile", help="Hermes profile name (default: role name)")
+    parser.add_argument(
+        "--parts",
+        choices=["all", "soul", "skills"],
+        default="all",
+        help="Deploy SOUL, skills, or both (default: all)",
+    )
+    parser.add_argument(
+        "--existing-only",
+        action="store_true",
+        help="Fail instead of creating a missing profile",
+    )
     parser.add_argument("--soul", default="role", help="role, none, a soul name, or a file path")
     parser.add_argument("--description", help="Override the profile description at creation")
     parser.add_argument("--no-alias", action="store_true", help="Do not create a Hermes command alias")
@@ -390,6 +422,8 @@ def parse_args(argv: Optional[List[str]] = None) -> DeployOptions:
         no_alias=args.no_alias,
         update_skills=args.update_skills,
         dry_run=args.dry_run,
+        parts=args.parts,
+        existing_only=args.existing_only,
     )
 
 

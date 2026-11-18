@@ -1,13 +1,7 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "personal-knowledge-assistant",
   "description": "Capture, organize, retrieve, and review personal knowledge with source-aware notes.",
-  "soul": {
-    "mode": "compose",
-    "files": [
-      "PERSONA.md",
-      "USAGE.md"
-    ]
-  },
+  "soul": "SOUL.md",
   "skills": []
 }

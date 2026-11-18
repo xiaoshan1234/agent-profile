@@ -13,16 +13,24 @@ profile, installs shared and role-specific skills, and selects the requested SOU
 |   `-- skills.json          Generated inventory of every installable skill
 |-- roles/
 |   `-- <role>/
-|       |-- role.json        Canonical role and skill selection
-|       |-- PERSONA.md       Role identity
-|       |-- USAGE.md         Usage guidance
+|       |-- role.json        Canonical SOUL path and skill selection
+|       |-- SOUL.md          Deployable role identity
 |       |-- SKILLS.md        Generated human-readable index
 |       `-- references/      Optional non-skill assets
 |-- skills/
-|   |-- local/               Self-authored skills
-|   `-- vendor/              Pinned or snapshotted network skills
+|   |-- shared/              Cross-role skills such as find-skills
+|   |-- documents/           Document and office skills
+|   |-- education/           Education and IELTS skills
+|   |-- finance/             Finance and stock skills
+|   |-- design/              Interface design skills
+|   |-- media/               Media-processing skills
+|   |-- productivity/        Workspace and automation skills
+|   `-- lifestyle/           Personal lifestyle skills
 |-- souls/
 |   `-- *.md                 Named reusable SOUL options
+|-- schemas/
+|   |-- role.schema.json     Role v1/v2 manifest contract
+|   `-- skills.schema.json   Skill catalog contract
 |-- scripts/
 |   |-- deploy-hermes.sh     One-command deployment entrypoint
 |   |-- deploy_hermes.py     Profile, skill, and SOUL deployment
@@ -32,7 +40,8 @@ profile, installs shared and role-specific skills, and selects the requested SOU
 |   `-- repo_lib.py          Shared implementation helpers
 `-- tests/
     |-- test_hermes_deploy.py
-    `-- test_import_skill.py
+    |-- test_import_skill.py
+    `-- test_skill_converter.py
 ```
 
 The role decision flow is:
@@ -41,7 +50,7 @@ The role decision flow is:
 role.json + catalog/common.json
         -> selected skill ids
         -> catalog/skills.json
-        -> local/vendor copy or Hermes registry install
+        -> domain skill copy or Hermes registry install
 ```
 
 ## Deploy a role
@@ -50,23 +59,28 @@ role.json + catalog/common.json
 ./scripts/deploy-hermes.sh english-teacher
 ```
 
-This creates the `english-teacher` profile only when it does not exist. The
-default SOUL is composed from the role's `PERSONA.md` and `USAGE.md`.
+This creates the profile only when it does not exist. Each role deploys its
+single `SOUL.md` plus the selected shared and domain skills.
 
 Useful options:
 
 ```bash
+# Deploy only SOUL or only skills
+./scripts/deploy-hermes.sh doc-assistant --parts soul
+./scripts/deploy-hermes.sh doc-assistant --parts skills
+
+# Deploy skills into an existing profile; fail if it does not exist
+./scripts/deploy-hermes.sh doc-assistant \
+  --profile existing-profile \
+  --parts skills \
+  --existing-only
+
 # Deploy into a differently named profile
 ./scripts/deploy-hermes.sh doc-assistant --profile docs
 
-# Do not modify SOUL.md
-./scripts/deploy-hermes.sh doc-assistant --soul none
-
-# Use a named SOUL from souls/
-./scripts/deploy-hermes.sh stock-manager --soul base-hermes
-
-# Use an arbitrary SOUL file
-./scripts/deploy-hermes.sh fitness-coach --soul ./my-soul.md
+# Override the role SOUL with a named SOUL or file
+./scripts/deploy-hermes.sh stock-manager --parts soul --soul base-hermes
+./scripts/deploy-hermes.sh fitness-coach --parts soul --soul ./my-soul.md
 
 # Replace changed skill copies; the previous copies are backed up in the profile
 ./scripts/deploy-hermes.sh english-teacher --update-skills
@@ -85,16 +99,16 @@ Self-authored skill:
 
 ```bash
 ./scripts/import_skill.py \
-  --id my-skill \
+  --id education/my-skill \
   --from-dir ./path/to/my-skill \
   --role english-teacher
 ```
 
-Network-collected GitHub skill, snapshotted under `skills/vendor/`:
+Network-collected GitHub skill, snapshotted under `skills/<domain>/` with Git provenance:
 
 ```bash
 ./scripts/import_skill.py \
-  --id example-skill \
+  --id documents/example-skill \
   --git owner/repo \
   --git-path path/to/example-skill \
   --ref main \
@@ -105,7 +119,7 @@ Skill pinned directly to a Hermes registry identifier:
 
 ```bash
 ./scripts/import_skill.py \
-  --id registry-skill \
+  --id shared/registry-skill \
   --hermes-identifier official/category/registry-skill \
   --common
 ```
@@ -118,28 +132,39 @@ single role. Then regenerate generated indexes:
 ./scripts/validate_repo.py --check-generated
 ```
 
+## Convert an external skill
+
+The shared converter normalizes Codex, OpenClaw, Claude, or generic skill
+frontmatter into Hermes format and writes a manual-review report:
+
+```bash
+python3 skills/shared/skill-converter/scripts/convert_skill.py \
+  --source /path/to/source-skill \
+  --domain documents \
+  --name converted-skill \
+  --author "Original Author, Hermes Agent" \
+  --license MIT
+```
+
+Run with `--dry-run` first. The converter preserves the body while reporting
+tool names, OpenClaw metadata, platform assumptions, and Codex-only files that
+need review.
+
 ## SOUL selection
 
 Each `role.json` can define:
 
 ```json
 {
-  "soul": {
-    "mode": "compose",
-    "files": ["PERSONA.md", "USAGE.md"]
-  }
+  "schema": 2,
+  "name": "doc-assistant",
+  "soul": "SOUL.md",
+  "skills": ["documents/docx", "documents/pdf"]
 }
 ```
 
-Alternative modes:
-
-```json
-{"soul": {"mode": "file", "file": "SOUL.md"}}
-{"soul": {"mode": "none"}}
-```
-
-CLI `--soul` overrides the role setting. `--soul role` uses the role
-configuration, `--soul none` leaves SOUL untouched, and any other value is
+CLI `--parts` decides which side is deployed. `--soul` overrides the role's
+SOUL selection, `--soul none` leaves SOUL untouched, and any other value is
 resolved as a direct file path, `souls/<name>`, or `souls/<name>.md`.
 
 ## Verification

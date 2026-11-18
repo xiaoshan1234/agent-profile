@@ -33,8 +33,39 @@ def _catalog_entry(root: Path, source: str, skill_dir: Path) -> Dict[str, Any]:
     }
 
 
+def _domain_catalog_entry(
+    root: Path,
+    domain: str,
+    skill_dir: Path,
+    existing: Dict[str, Dict[str, Any]],
+    legacy: Optional[Dict[str, Any]],
+) -> Dict[str, Any]:
+    metadata = skill_metadata(skill_dir)
+    previous = existing.get(f"{domain}/{skill_dir.name}", {})
+    origin = previous.get("origin")
+    if not isinstance(origin, dict):
+        legacy_source = str((legacy or {}).get("source", ""))
+        origin_type = "vendor" if legacy_source in {"vendor", "file"} else "local"
+        origin = {"type": origin_type, "note": "Migrated into the domain layout."}
+    return {
+        "source": "file",
+        "domain": domain,
+        "path": relative_display_path(root, skill_dir),
+        "installed_as": str(previous.get("installed_as") or metadata["name"]),
+        "description": metadata["description"],
+        "origin": origin,
+    }
+
+
 def _scan_sources(root: Path, existing: Dict[str, Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
-    catalog: Dict[str, Dict[str, Any]] = {key: dict(value) for key, value in existing.items()}
+    catalog: Dict[str, Dict[str, Any]] = {}
+    for key, value in existing.items():
+        source = str(value.get("source", ""))
+        path_value = str(value.get("path", "")).strip()
+        if source in {"local", "vendor", "file"} and path_value:
+            if not (root / path_value / "SKILL.md").is_file():
+                continue
+        catalog[key] = dict(value)
     seen_paths: Dict[str, Path] = {}
     for source in ("local", "vendor"):
         base = root / "skills" / source
@@ -64,6 +95,28 @@ def _scan_sources(root: Path, existing: Dict[str, Dict[str, Any]]) -> Dict[str, 
             merged.setdefault("installed_as", discovered["installed_as"])
             merged["description"] = discovered["description"]
             catalog[skill_id] = merged
+    for domain_dir in sorted(path for path in (root / "skills").iterdir() if path.is_dir()):
+        domain = domain_dir.name
+        if domain in {"local", "vendor"}:
+            continue
+        for skill_dir in sorted(path for path in domain_dir.iterdir() if path.is_dir()):
+            if not (skill_dir / "SKILL.md").is_file():
+                continue
+            skill_id = f"{domain}/{skill_dir.name}"
+            previous_path = seen_paths.get(skill_id)
+            if previous_path is not None:
+                raise RepoError(
+                    f"Duplicate skill id {skill_id!r}: {previous_path} and {skill_dir}"
+                )
+            seen_paths[skill_id] = skill_dir
+            legacy = catalog.get(skill_dir.name)
+            catalog[skill_id] = _domain_catalog_entry(
+                root,
+                domain,
+                skill_dir,
+                existing,
+                legacy,
+            )
     return dict(sorted(catalog.items()))
 
 
@@ -79,7 +132,7 @@ def _render_index(
             raise RepoError(f"Role {role} references unknown skill: {skill_id}")
         description = str(entry.get("description", "")).strip()
         source = str(entry.get("source", "")).strip()
-        if source in {"local", "vendor"}:
+        if source in {"local", "vendor", "file"}:
             target = (root / str(entry["path"])).resolve()
             link = relative_display_path(role_dir, target)
             label = f"[{skill_id}]({link})"

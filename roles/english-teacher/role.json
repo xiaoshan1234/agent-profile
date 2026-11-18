@@ -1,34 +1,28 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "english-teacher",
   "description": "Design English lessons, assess learners, process authentic material, and coach IELTS study and review.",
-  "soul": {
-    "mode": "compose",
-    "files": [
-      "PERSONA.md",
-      "USAGE.md"
-    ]
-  },
+  "soul": "SOUL.md",
   "skills": [
-    "sheltered-instruction-lesson-modifier",
-    "academic-language-sentence-frame-generator",
-    "vocabulary-tiering-tool",
-    "language-demand-analyser",
-    "scaffolded-task-modifier",
-    "ai-hallucination-fact-check-protocol",
-    "ai-socratic-dialogue-designer",
-    "youtube-content",
-    "fluent-learn",
-    "fluent-vocab",
-    "fluent-speaking",
-    "fluent-review",
-    "ielts-study-plan",
-    "ielts-vocabulary-coach",
-    "ielts-writing-review",
-    "ielts-speaking-coach",
-    "ielts-reading-review",
-    "ielts-listening-review",
-    "ielts-practice",
-    "ielts-mock-review"
+    "education/sheltered-instruction-lesson-modifier",
+    "education/academic-language-sentence-frame-generator",
+    "education/vocabulary-tiering-tool",
+    "education/language-demand-analyser",
+    "education/scaffolded-task-modifier",
+    "shared/ai-hallucination-fact-check-protocol",
+    "shared/ai-socratic-dialogue-designer",
+    "media/youtube-content",
+    "education/fluent-learn",
+    "education/fluent-vocab",
+    "education/fluent-speaking",
+    "education/fluent-review",
+    "education/ielts-study-plan",
+    "education/ielts-vocabulary-coach",
+    "education/ielts-writing-review",
+    "education/ielts-speaking-coach",
+    "education/ielts-reading-review",
+    "education/ielts-listening-review",
+    "education/ielts-practice",
+    "education/ielts-mock-review"
   ]
 }
