@@ -35,6 +35,7 @@ profile, installs shared and role-specific skills, and selects the requested SOU
 |   |-- deploy-hermes.sh     One-command deployment entrypoint
 |   |-- deploy_hermes.py     Profile, skill, and SOUL deployment
 |   |-- import_skill.py      Register local, GitHub, or Hermes registry skills
+|   |-- role_skill_scout.py  Discover role-relevant skills and import them with provenance
 |   |-- rebuild_catalog.py   Generate the catalog and role indexes
 |   |-- validate_repo.py     Validate manifests, sources, and generated files
 |   `-- repo_lib.py          Shared implementation helpers
@@ -131,6 +132,29 @@ single role. Then regenerate generated indexes:
 ./scripts/rebuild_catalog.py
 ./scripts/validate_repo.py --check-generated
 ```
+
+## Scout role-relevant skills
+
+`role_skill_scout.py` searches the registries (ClawHub, skills.sh, GitHub, official)
+for skills that match each role in `catalog/scout-queries.json`, then imports the
+best matches with provenance:
+
+```bash
+python3 scripts/role_skill_scout.py                       # dry-run, all roles
+python3 scripts/role_skill_scout.py --roles english-teacher --max 1 --apply
+```
+
+Selection rules: single-keyword queries (multi-word queries rarely match), keyword
+scoring against the candidate name + description (`min_score`, default 3), generic
+names (a skill literally called `fitness`) are rejected, same-name clashes are
+skipped, and a static security scan blocks anything whose scripts pipe downloads
+into a shell or read credentials. Imports are **not** wired into `role.json`
+automatically — the report says which role a skill matches, and wiring stays a
+human decision.
+
+Provenance for every imported skill lands in two places: the catalog entry
+(`origin.via`, `origin.note`, `origin.url`) and the append-only
+`catalog/skill-sources.jsonl` audit trail.
 
 ## Convert an external skill
 

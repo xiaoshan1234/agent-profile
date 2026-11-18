@@ -111,6 +111,19 @@
       "path": "skills/education/academic-language-sentence-frame-generator",
       "source": "file"
     },
+    "education/english-speaking-writing-coach": {
+      "description": "Use when coaching English speaking or writing skills: correcting grammar, improving sentence fluency, expanding vocabulary, practicing conversations, preparing for IELTS/TOEFL writing, polishing emails or essays, and building daily English habits. Best for Chinese learners targeting professional English.",
+      "domain": "education",
+      "installed_as": "english-speaking-writing-coach",
+      "origin": {
+        "note": "scout:language-tutor-en",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/language-tutor-en",
+        "via": "clawhub"
+      },
+      "path": "skills/education/english-speaking-writing-coach",
+      "source": "file"
+    },
     "education/fluent-db-updater": {
       "description": "Atomically update all 6 Fluent learner databases (learner-profile, progress, mistakes, mastery, spaced-repetition, session-log) at session end by calling .claude/hooks/update-db.py with a single JSON payload. Use at the end of every practice session — fluent-writing, fluent-vocab, fluent-speaking, fluent-reading, fluent-review, fluent-learn — to persist the session's errors, review results, new vocabulary, and session metadata.",
       "domain": "education",

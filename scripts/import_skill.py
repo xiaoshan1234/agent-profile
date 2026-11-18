@@ -175,6 +175,9 @@ def import_skill(
     force: bool,
     common: bool,
     role: Optional[str],
+    origin_note: Optional[str] = None,
+    origin_url: Optional[str] = None,
+    origin_via: Optional[str] = None,
 ) -> None:
     domain, skill_name, skill_id = validate_skill_id(skill_id)
     modes = sum(bool(value) for value in (from_dir, git, hermes_identifier))
@@ -240,6 +243,12 @@ def import_skill(
             "ref": ref,
             "path": git_path,
         }
+    if origin_via:
+        entry["origin"]["via"] = origin_via
+    if origin_url:
+        entry["origin"]["url"] = origin_url
+    if origin_note:
+        entry["origin"]["note"] = origin_note
     _register(repo_root, skill_id, entry, common=common, role=role)
     print(f"imported {skill_id} -> {destination}")
     print("Run ./scripts/rebuild-catalog.py to refresh generated role indexes.")
@@ -261,6 +270,9 @@ def main(argv: Optional[List[str]] = None) -> int:
         help="Origin metadata (default: local for --from-dir, vendor for --git)",
     )
     parser.add_argument("--install-as", help="Installed directory name")
+    parser.add_argument("--origin-note", help="Free-form provenance note (e.g. clawhub:owner/slug)")
+    parser.add_argument("--origin-url", help="Provenance URL for the imported skill")
+    parser.add_argument("--origin-via", help="Discovery channel: github, clawhub, skills-sh, official")
     parser.add_argument("--force", action="store_true", help="Replace an existing catalog id")
     parser.add_argument("--common", action="store_true", help="Add to every role")
     parser.add_argument("--role", help="Add to one role's role.json")
@@ -279,6 +291,9 @@ def main(argv: Optional[List[str]] = None) -> int:
             force=args.force,
             common=args.common,
             role=args.role,
+            origin_note=args.origin_note,
+            origin_url=args.origin_url,
+            origin_via=args.origin_via,
         )
         return 0
     except (RepoError, OSError) as exc:

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "max_per_day": 6,
+  "max_per_role": 2,
+  "min_score": 3,
+  "search_limit": 10,
+  "notes": "单关键词查询（多词查询在 registry 里几乎命中不了）；keywords 用于命中打分，命中 >= min_score 才收。domain 决定技能落进 skills/<domain>/。",
+  "roles": {
+    "doc-assistant": {
+      "domain": "documents",
+      "queries": ["pdf", "docx", "xlsx", "ocr", "contract", "invoice"],
+      "keywords": ["pdf", "docx", "xlsx", "powerpoint", "pptx", "word", "excel", "ocr", "meeting", "minutes", "document", "contract", "invoice", "extract", "template"]
+    },
+    "english-teacher": {
+      "domain": "education",
+      "queries": ["ielts", "esl", "vocabulary", "grammar", "reading", "speaking"],
+      "keywords": ["ielts", "esl", "english", "grammar", "vocabulary", "lesson", "learner", "teaching", "writing", "band", "speaking", "listening", "comprehension"]
+    },
+    "fitness-coach": {
+      "domain": "health",
+      "queries": ["workout", "fitness", "strength", "running", "mobility"],
+      "keywords": ["workout", "training", "strength", "hypertrophy", "mobility", "running", "recovery", "fitness", "exercise", "program", "sets", "reps", "rpe"]
+    },
+    "personal-knowledge-assistant": {
+      "domain": "knowledge",
+      "queries": ["obsidian", "notes", "zettelkasten", "journal", "markdown"],
+      "keywords": ["obsidian", "zettelkasten", "note", "notes", "pkm", "markdown", "knowledge", "wiki", "backlink", "journal", "capture", "review"]
+    },
+    "stock-manager": {
+      "domain": "finance",
+      "queries": ["stock", "portfolio", "options", "earnings", "dividend"],
+      "keywords": ["stock", "equity", "portfolio", "valuation", "earnings", "option", "dividend", "market", "screener", "risk", "backtest", "ticker"]
+    },
+    "ui-designer": {
+      "domain": "design",
+      "queries": ["figma", "tailwind", "accessibility", "design", "css"],
+      "keywords": ["figma", "tailwind", "design", "component", "accessibility", "a11y", "ui", "ux", "css", "token", "layout", "typography"]
+    }
+  }
+}
