@@ -8,7 +8,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from role_skill_scout import GENERIC_NAMES, plan_import, score_candidate, slugify  # noqa: E402
+from role_skill_scout import (  # noqa: E402
+    GENERIC_NAMES,
+    normalize_frontmatter_name,
+    plan_import,
+    score_candidate,
+    slugify,
+)
 
 
 class ScoutScoringTests(unittest.TestCase):
@@ -56,6 +62,31 @@ class ScoutPlanTests(unittest.TestCase):
     def test_unusable_identifier_is_reported(self):
         kind, _ = plan_import({"identifier": "owner/repo-without-skill-path", "source": "weird-registry"}, "x")
         self.assertEqual(kind, "unknown")
+
+
+class ScoutFrontmatterTests(unittest.TestCase):
+    def test_missing_frontmatter_gets_a_minimal_block(self):
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as temp_name:
+            skill_dir = Path(temp_name)
+            (skill_dir / "SKILL.md").write_text("# Bare skill\n\nBody.\n", encoding="utf-8")
+            normalize_frontmatter_name(skill_dir, "bare-skill", "Does a thing.")
+            text = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
+            self.assertTrue(text.startswith("---\nname: bare-skill\n"))
+            self.assertIn("Does a thing.", text)
+            self.assertIn("# Bare skill", text)
+
+    def test_existing_name_is_rewritten_to_the_slug(self):
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as temp_name:
+            skill_dir = Path(temp_name)
+            (skill_dir / "SKILL.md").write_text("---\nname: upstream-name\ndescription: x\n---\n\nBody\n", encoding="utf-8")
+            normalize_frontmatter_name(skill_dir, "local-slug")
+            text = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
+            self.assertIn("name: local-slug", text)
+            self.assertNotIn("upstream-name", text)
 
 
 if __name__ == "__main__":

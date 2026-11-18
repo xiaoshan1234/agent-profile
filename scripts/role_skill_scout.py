@@ -161,13 +161,20 @@ def fetch_clawhub_skill(slug: str, dest: Path) -> Optional[Path]:
     return dest / "files" if (dest / "files" / "SKILL.md").is_file() else None
 
 
-def normalize_frontmatter_name(skill_dir: Path, name: str) -> None:
-    """Make `name:` match the directory/claw slug so Hermes indexing and the 08:00 audit agree."""
+def normalize_frontmatter_name(skill_dir: Path, name: str, description: str = "") -> None:
+    """Guarantee a Hermes-compatible frontmatter with `name` == slug and a description.
+
+    Some registries ship a bare SKILL.md with no frontmatter at all; the importer
+    refuses those, so the scout writes the minimum block instead of dropping them.
+    """
     skill_md = skill_dir / "SKILL.md"
     if not skill_md.is_file():
         return
     text = skill_md.read_text(errors="ignore")
     if not text.startswith("---"):
+        summary = " ".join((description or "").split())[:280] or f"{name} skill."
+        block = f"---\nname: {name}\ndescription: >\n  {summary}\n---\n\n"
+        skill_md.write_text(block + text.lstrip(), encoding="utf-8")
         return
     end = text.find("\n---", 3)
     if end == -1:
@@ -335,7 +342,7 @@ def main(argv: Optional[List[str]] = None) -> int:
                 results.append(outcome)
                 continue
             if args.apply:
-                normalize_frontmatter_name(staged, name)
+                normalize_frontmatter_name(staged, name, str(candidate.get("description") or ""))
                 try:
                     import_skill(repo_root, skill_id=skill_id, from_dir=str(staged), git=None, ref=args.ref,
                                  git_path=None, hermes_identifier=None,
