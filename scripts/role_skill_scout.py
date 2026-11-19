@@ -161,6 +161,30 @@ def fetch_clawhub_skill(slug: str, dest: Path) -> Optional[Path]:
     return dest / "files" if (dest / "files" / "SKILL.md").is_file() else None
 
 
+JUNK_DESCRIPTIONS = {">", ">-", "|", "|-", '">"', "'|'", '">-"', '"<"', "", '""', "''", "n/a", "tbd", "todo"}
+
+
+def _repair_junk_description(lines: List[str], summary: str) -> bool:
+    """Replace placeholder descriptions such as `description: ">"` with a real one.
+
+    Some vendored skills ship a generated metadata block whose description value is
+    just a block marker; keeping it makes the skill undiscoverable and fails review.
+    Block-style descriptions with an indented body are left untouched.
+    """
+    for index, line in enumerate(lines):
+        match = re.match(r"\s*description\s*:\s*(?P<value>.*)$", line)
+        if not match:
+            continue
+        if match.group("value").strip().lower() not in JUNK_DESCRIPTIONS:
+            return False
+        following = lines[index + 1] if index + 1 < len(lines) else ""
+        if following.strip() and following[:1].isspace():
+            return False
+        lines[index:index + 1] = ["description: >", f"  {summary}"]
+        return True
+    return False
+
+
 def normalize_frontmatter_name(skill_dir: Path, name: str, description: str = "") -> None:
     """Guarantee a Hermes-compatible frontmatter with `name` == slug and a description.
 
@@ -189,6 +213,8 @@ def normalize_frontmatter_name(skill_dir: Path, name: str, description: str = ""
             break
     if not replaced:
         lines.insert(1, f"name: {name}")
+    summary = " ".join((description or "").split())[:280] or f"{name} skill."
+    _repair_junk_description(lines, summary)
     skill_md.write_text("\n".join(lines) + body, encoding="utf-8")
 
 
