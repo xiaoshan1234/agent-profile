@@ -1,6 +1,6 @@
 ---
 name: ielts-listening-review
-description: Review IELTS Listening or dictation errors from transcripts, answers, and timestamps, then generate targeted replay drills and a validated Listening Error Notebook DOCX. Use when a learner asks why they missed listening answers, wants a dictation review, provides a transcript or answer key, or needs a focused listening repair plan.
+description: "IELTS listening error review, replay drills, DOCX log"
 ---
 
 # IELTS 听力复盘
