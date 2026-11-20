@@ -69,6 +69,19 @@
       "path": "skills/documents/docx",
       "source": "file"
     },
+    "documents/invoice-template": {
+      "description": "Generate professional PDF invoices from templates",
+      "domain": "documents",
+      "installed_as": "invoice-template",
+      "origin": {
+        "note": "scout:skills-sh/claude-office-skills/skills/invoice-template",
+        "type": "vendor",
+        "url": "https://github.com/claude-office-skills/skills",
+        "via": "skills.sh"
+      },
+      "path": "skills/documents/invoice-template",
+      "source": "file"
+    },
     "documents/meeting-action-items": {
       "description": "Turn meeting notes into cited decisions, owners, tickets.",
       "domain": "documents",
@@ -78,6 +91,19 @@
         "type": "vendor"
       },
       "path": "skills/documents/meeting-action-items",
+      "source": "file"
+    },
+    "documents/ocr-document-processor": {
+      "description": "Extract text and structure from scans, images, and scanned PDFs. Use for OCR, searchable PDFs, table extraction, receipt parsing, and business card parsing.",
+      "domain": "documents",
+      "installed_as": "ocr-document-processor",
+      "origin": {
+        "note": "scout:skills-sh/dkyazzentwatwa/chatgpt-skills/ocr-document-processor",
+        "type": "vendor",
+        "url": "https://github.com/dkyazzentwatwa/chatgpt-skills",
+        "via": "skills.sh"
+      },
+      "path": "skills/documents/ocr-document-processor",
       "source": "file"
     },
     "documents/ocr-word": {
@@ -135,6 +161,32 @@
         "type": "vendor"
       },
       "path": "skills/education/academic-language-sentence-frame-generator",
+      "source": "file"
+    },
+    "education/daily-english-speaking-practice": {
+      "description": "A low‑pressure oral English practice skill. Supports free conversation and scenario role‑play. Provides gentle expression correction and key‑phrase review. Suitable for learners to improve oral fluency.",
+      "domain": "education",
+      "installed_as": "daily-english-speaking-practice",
+      "origin": {
+        "note": "scout:daily-english-speaking-practice",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/daily-english-speaking-practice",
+        "via": "clawhub"
+      },
+      "path": "skills/education/daily-english-speaking-practice",
+      "source": "file"
+    },
+    "education/english-speaking-practice": {
+      "description": "英语口语练习助手，包含对话训练和任务推送两大功能。需要用户发送语音或文字消息且内容与英语练习相关时触发对话训练；定时触发任务推送。",
+      "domain": "education",
+      "installed_as": "english-speaking-practice",
+      "origin": {
+        "note": "scout:english-speaking-practice",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/english-speaking-practice",
+        "via": "clawhub"
+      },
+      "path": "skills/education/english-speaking-practice",
       "source": "file"
     },
     "education/english-speaking-writing-coach": {
@@ -667,6 +719,32 @@
         "type": "vendor"
       },
       "path": "skills/finance/undervalued-stock-screener",
+      "source": "file"
+    },
+    "health/daily-fitness": {
+      "description": "Daily no-equipment workout — 5–15 min bodyweight routines (HIIT, yoga, core, mobility) with instructions and streak tracking. Works at home, office, or travel.",
+      "domain": "health",
+      "installed_as": "daily-fitness",
+      "origin": {
+        "note": "scout:daily-fitness",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/daily-fitness",
+        "via": "clawhub"
+      },
+      "path": "skills/health/daily-fitness",
+      "source": "file"
+    },
+    "health/fitness-agent": {
+      "description": "Provides personalized workout plans, nutrition guidance, exercise alternatives, and tracks fitness progress with motivational and safety-focused coaching.",
+      "domain": "health",
+      "installed_as": "fitness-agent",
+      "origin": {
+        "note": "scout:fitness-agent",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/fitness-agent",
+        "via": "clawhub"
+      },
+      "path": "skills/health/fitness-agent",
       "source": "file"
     },
     "health/fitness-training-engineering": {
