@@ -379,7 +379,7 @@
       "source": "file"
     },
     "education/ielts-speaking-coach": {
-      "description": "Run IELTS Speaking Part 1, Part 2, or Part 3 coaching, map real personal stories to cue-card coverage, build reusable topic material, and generate a validated speaking report. Use when a learner asks for speaking practice, mock interview feedback, transcript review, topic selection, topic coverage, answer development, reusable phrases, or a speaking DOCX report.",
+      "description": "IELTS 口语 Part 1/2/3 陪练、串题素材与 DOCX 口语报告。",
       "domain": "education",
       "installed_as": "ielts-speaking-coach",
       "origin": {
@@ -414,7 +414,7 @@
       "source": "file"
     },
     "education/ielts-vocabulary-coach": {
-      "description": "Run IELTS vocabulary practice with active recall, hints, collocations, spaced review, and a validated weekly vocabulary DOCX sheet. Use when a learner asks to learn words, review a wordbook, practise collocations, build vocabulary cards, review weak words, or create a printable vocabulary report.",
+      "description": "IELTS 词汇练习：主动回忆、搭配、周复习与 DOCX 词汇报告。",
       "domain": "education",
       "installed_as": "ielts-vocabulary-coach",
       "origin": {
@@ -535,7 +535,7 @@
       "source": "file"
     },
     "finance/findata-toolkit-cn": {
-      "description": "A股金融数据工具包。提供脚本获取A股实时行情、财务指标、董监高增减持、北向资金、宏观经济数据（LPR、CPI/PPI、PMI、社融、M2）。用于需要实时A股市场数据支撑投资分析时。所有数据源免费，无需API密钥。",
+      "description": "A股/海外金融数据：行情、财务、减持、北向与宏观指标。",
       "domain": "finance",
       "installed_as": "findata-toolkit-cn",
       "origin": {

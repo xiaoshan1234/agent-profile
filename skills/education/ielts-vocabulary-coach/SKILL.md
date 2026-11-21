@@ -1,6 +1,6 @@
 ---
 name: ielts-vocabulary-coach
-description: Run IELTS vocabulary practice with active recall, hints, collocations, spaced review, and a validated weekly vocabulary DOCX sheet. Use when a learner asks to learn words, review a wordbook, practise collocations, build vocabulary cards, review weak words, or create a printable vocabulary report.
+description: IELTS 词汇练习：主动回忆、搭配、周复习与 DOCX 词汇报告。
 ---
 
 # IELTS 词汇练习
