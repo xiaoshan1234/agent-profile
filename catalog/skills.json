@@ -34,6 +34,19 @@
       "path": "skills/design/touchdesigner-mcp",
       "source": "file"
     },
+    "design/web-artifacts-builder": {
+      "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
+      "domain": "design",
+      "installed_as": "web-artifacts-builder",
+      "origin": {
+        "note": "scout:anthropics/skills/skills/web-artifacts-builder",
+        "type": "vendor",
+        "url": "https://github.com/anthropics/skills",
+        "via": "github"
+      },
+      "path": "skills/design/web-artifacts-builder",
+      "source": "file"
+    },
     "documents/contract-template": {
       "description": "Generate Accord Project contract templates (NDA/service/rental) with TemplateMark clauses, Concerto data models and Ergo logic.",
       "domain": "documents",
@@ -503,6 +516,19 @@
       "path": "skills/finance/dcf-valuation",
       "source": "file"
     },
+    "finance/dividend-growth-pullback-screener": {
+      "description": "Use this skill to find high-quality dividend growth stocks (12%+ annual dividend growth, 1.5%+ yield) that are experiencing temporary pullbacks, identified by RSI oversold conditions (RSI ≤40). This skill combines fundamental dividend analysis with technical timing indicators to identify buying opportunities in strong dividend growers during short-term weakness.",
+      "domain": "finance",
+      "installed_as": "dividend-growth-pullback-screener",
+      "origin": {
+        "note": "scout:skills-sh/tradermonty/claude-trading-skills/dividend-growth-pullback-screener",
+        "type": "vendor",
+        "url": "https://github.com/tradermonty/claude-trading-skills",
+        "via": "skills.sh"
+      },
+      "path": "skills/finance/dividend-growth-pullback-screener",
+      "source": "file"
+    },
     "finance/earnings-call-analysis": {
       "description": "Analyze earnings call transcripts for sentiment, key themes, and management tone",
       "domain": "finance",
@@ -747,6 +773,19 @@
       "path": "skills/finance/undervalued-stock-screener",
       "source": "file"
     },
+    "finance/value-dividend-screener": {
+      "description": "Screen US stocks for high-quality dividend opportunities combining value characteristics (P/E ratio under 20, P/B ratio under 2), attractive yields (3% or higher), and consistent growth (dividend/revenue/EPS trending up over 3 years). Supports two-stage screening using FINVIZ Elite API for efficient pre-filtering followed by FMP API for detailed analysis. Use when user requests dividend stock screening, income portfolio ideas, or quality value stocks with strong fundamentals.",
+      "domain": "finance",
+      "installed_as": "value-dividend-screener",
+      "origin": {
+        "note": "scout:skills-sh/tradermonty/claude-trading-skills/value-dividend-screener",
+        "type": "vendor",
+        "url": "https://github.com/tradermonty/claude-trading-skills",
+        "via": "skills.sh"
+      },
+      "path": "skills/finance/value-dividend-screener",
+      "source": "file"
+    },
     "health/daily-fitness": {
       "description": "Daily no-equipment workout — 5–15 min bodyweight routines (HIIT, yoga, core, mobility) with instructions and streak tracking. Works at home, office, or travel.",
       "domain": "health",
@@ -812,6 +851,19 @@
       "path": "skills/health/fitness-training-engineering",
       "source": "file"
     },
+    "health/fitness-workout-manager": {
+      "description": "运动健康管家 Pro — 专为 Open Claw + 飞书生态打造的 AI 健身管家。双模式打卡（事后总结 / 边练边记）、3 层 Session 防丢失、飞书云文档同步、极致 Token 优化。Route to this skill when the user mentions workouts, logs exercises, asks for fitness stats, or provides post-workout feedback.",
+      "domain": "health",
+      "installed_as": "fitness-workout-manager",
+      "origin": {
+        "note": "scout:fitness-skill",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/fitness-skill",
+        "via": "clawhub"
+      },
+      "path": "skills/health/fitness-workout-manager",
+      "source": "file"
+    },
     "health/strength-training-recording-summary": {
       "description": "Create WorkoutSummary notes from strength-training recordings or transcripts. Accepts audio (.m4a, .mp3, .wav, .caf) and transcript files (.md, .txt, .srt, .vtt, .json); outputs total time, exercises completed, sets/reps, durations, and concise coach notes.",
       "domain": "health",
@@ -823,6 +875,19 @@
         "via": "clawhub"
       },
       "path": "skills/health/strength-training-recording-summary",
+      "source": "file"
+    },
+    "health/workout-program-designer": {
+      "description": "Custom training plans by goal (strength, cardio, flexibility). Progressive overload programming, rest day optimization, home vs gym adaptations, deload weeks.",
+      "domain": "health",
+      "installed_as": "workout-program-designer",
+      "origin": {
+        "note": "scout:skills-sh/onewave-ai/claude-skills/workout-program-designer",
+        "type": "vendor",
+        "url": "https://github.com/onewave-ai/claude-skills",
+        "via": "skills.sh"
+      },
+      "path": "skills/health/workout-program-designer",
       "source": "file"
     },
     "health/workout-track": {
@@ -901,6 +966,19 @@
         "via": "clawhub"
       },
       "path": "skills/knowledge/obsidian",
+      "source": "file"
+    },
+    "knowledge/zettelkasten-note-tool": {
+      "description": "Create, manage, and operate a Zettelkasten slip-box note system using the zk.py CLI script. Use this skill whenever a user wants to build or use a Zettelkasten note system, manage atomic notes, create fleeting/literature/permanent notes, link notes together, find orphaned notes, generate Maps of Content, or search/browse a note vault. Trigger on phrases like \"zettelkasten\", \"slip box notes\", \"atomic notes\", \"permanent notes\", \"znote\", \"zk notes\", \"note vault\", \"create a note\", \"link my notes\", \"find orphaned notes\", \"map of content\", or \"manage my notes with zk\".",
+      "domain": "knowledge",
+      "installed_as": "zettelkasten-note-tool",
+      "origin": {
+        "note": "scout:znote",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/znote",
+        "via": "clawhub"
+      },
+      "path": "skills/knowledge/zettelkasten-note-tool",
       "source": "file"
     },
     "lifestyle/minecraft-modpack-server": {
