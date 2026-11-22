@@ -1,6 +1,6 @@
 ---
 name: fitness-encyclopedia
-description: Fitness Encyclopedia - Your comprehensive AI fitness assistant providing personalized training plans, nutrition calculation, strength prediction, joint assessment, and expert fitness knowledge. Triggers on: fitness, workout, training, gym, exercise, weight-loss, muscle-gain, fat-loss, bodybuilding, fitness-plan, personal-trainer. Features: personalized workout routines, calorie & macro calculator, 1RM strength prediction, gym & home training plans, cardio burn tracker, food nutrition database, muscle stretching guides, fitness anatomy, joint movement analysis, limitation assessment, professional training advice.
+description: "Fitness plans, nutrition calc, strength and joint checks"
 dependency:
   python: []
   system: []
@@ -8,7 +8,7 @@ dependency:
 
 # Fitness Encyclopedia
 
-## 🚨 Trigger Rules
+## When to Use
 
 **Mandatory Trigger**: When the user mentions any of these keywords, immediately display the 11 function modules:
 
@@ -243,7 +243,7 @@ Information collection complete. Now creating your personalized plan...
 
 ### Essential Scripts
 - **scripts/calculate_nutrition.py** - Calorie and nutrition calculation
-- **scripts/predict_strength.py** - Strength prediction
+- **scripts/predict_max_strength.py** - Strength prediction
 
 ### Reference Materials
 - **references/training_plans.md** - Training plan details

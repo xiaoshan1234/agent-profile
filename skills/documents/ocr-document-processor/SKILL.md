@@ -1,13 +1,13 @@
 ---
 name: ocr-document-processor
-description: Extract text and structure from scans, images, and scanned PDFs. Use for OCR, searchable PDFs, table extraction, receipt parsing, and business card parsing.
+description: "OCR: text/table extraction from scans, images, PDFs"
 ---
 
 # OCR Document Processor
 
 Handle OCR-heavy inputs where text must be recovered from images or scanned pages.
 
-## Use This For
+## When to Use
 
 - OCR on images and scanned PDFs
 - Searchable PDF export
