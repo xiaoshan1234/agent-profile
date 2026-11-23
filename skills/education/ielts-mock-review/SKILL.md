@@ -1,11 +1,17 @@
 ---
 name: ielts-mock-review
-description: Review a completed IELTS mock test with section scores, timing, question-level results, writing, and speaking evidence, then choose a small set of high-impact repair tasks. Use when a learner asks to analyse a mock exam, interpret score changes, identify the biggest weaknesses, or make a post-mock study plan.
+description: "复盘雅思模考（听说读写分数与错题），用户要分析模考或定补强计划时用。"
 ---
 
 # IELTS 模考复盘
 
 默认用简体中文。浏览器负责计时、播放、答题和提交；本 Skill 负责解释已有证据、判断修复优先级和安排下一步。模考结果不是官方成绩，也不应单独视为稳定水平。
+
+## When to Use
+
+- 学习者要求分析一次已完成的雅思模考（分数、计时、逐题结果、写作与口语证据）
+- 需要解读两次模考之间的分数变化
+- 需要找出当前最大薄弱项，或制定模考后的学习计划
 
 ## 工作流
 

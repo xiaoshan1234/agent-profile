@@ -18,7 +18,7 @@ Financial Modeling Prep provides comprehensive financial data APIs for stocks, f
 - **250 requests per day**
 - **Rate limit**: ~5 requests per second
 - **No credit card required**
-- The 250 calls/day budget covers a small two-stage universe, but the budget is not the binding constraint: the endpoints must be included in the plan. The stock-screener endpoint used by FMP-only mode is not on the free plan (2026-11), and the per-symbol analysis endpoints (ratios, income-statement, dividends, historical prices) were reported returning HTTP 402 in a synthetic review for issue #777 (not verified on a live Basic key). When any of them is plan-gated, the screeners report the run as plan-gated instead of returning zero candidates. See `docs/en/getting-started.md#fmp-plans`.
+- The 250 calls/day budget covers a small two-stage universe, but the budget is not the binding constraint: the endpoints must be included in the plan. The stock-screener endpoint used by FMP-only mode is not on the free plan (2026-11), and the per-symbol analysis endpoints (ratios, income-statement, dividends, historical prices) were reported returning HTTP 402 in a synthetic review for issue #777 (not verified on a live Basic key). When any of them is plan-gated, the screeners report the run as plan-gated instead of returning zero candidates. See the **Paid Plans (Optional)** section of this file.
 
 ### Paid Plans (Optional)
 
@@ -72,7 +72,7 @@ parameters (and returns no yield/P/E/P/B fields).
 - `limit`: Max results (default: 1000)
 
 The free plan does not include this endpoint (2026-11); see
-`docs/en/getting-started.md#fmp-plans`.
+the **Paid Plans (Optional)** section of this file.
 
 **Example Request:**
 ```
@@ -222,7 +222,7 @@ The screening script includes rate limiting:
 
 ### Managing Request Budget
 
-For a plan that includes the stock screener (the free plan does not, 2026-11; see `docs/en/getting-started.md#fmp-plans`):
+For a plan that includes the stock screener (the free plan does not, 2026-11; see the **Paid Plans (Optional)** section of this file):
 
 **Requests per stock analyzed:**
 - Stock Screener: 1 request (returns 100-1000 stocks)

@@ -1,6 +1,6 @@
 ---
 name: dividend-growth-pullback-screener
-description: Use this skill to find high-quality dividend growth stocks (12%+ annual dividend growth, 1.5%+ yield) that are experiencing temporary pullbacks, identified by RSI oversold conditions (RSI ≤40). This skill combines fundamental dividend analysis with technical timing indicators to identify buying opportunities in strong dividend growers during short-term weakness.
+description: "找股息高增长(12%+)且RSI超卖回调的股票买点，用户要择时买股息成长股时用。"
 ---
 
 # Dividend Growth Pullback Screener
@@ -28,7 +28,7 @@ Use this skill when:
 
 ## Prerequisites
 
-- **FMP API key** (required): Set `FMP_API_KEY` environment variable or pass `--fmp-api-key`. The free plan has a daily request budget; the stock-screener endpoint used by FMP-only mode is not on the free plan (2026-11). Use `--use-finviz` or an FMP plan that includes it (see `docs/en/getting-started.md#fmp-plans`). [Sign up](https://site.financialmodelingprep.com/developer/docs).
+- **FMP API key** (required): Set `FMP_API_KEY` environment variable or pass `--fmp-api-key`. The free plan has a daily request budget; the stock-screener endpoint used by FMP-only mode is not on the free plan (2026-11). Use `--use-finviz` or an FMP plan that includes it (see `references/fmp_api_guide.md`). [Sign up](https://site.financialmodelingprep.com/developer/docs).
 - **FINVIZ Elite API key** (optional, recommended): Set `FINVIZ_API_KEY` environment variable or pass `--finviz-api-key`. Reduces execution time from 10–15 min to 2–3 min. [Sign up](https://elite.finviz.com/).
 - Python 3.9+ with the `requests` library installed.
 
@@ -256,7 +256,7 @@ Stocks ranked by composite score. Top scorers combine exceptional dividend growt
 ### API Rate Limit Reached
 
 **FMP Free Tier Limits:**
-- 250 requests/day (rate limit; the stock-screener endpoint itself is not included — see `docs/en/getting-started.md#fmp-plans`)
+- 250 requests/day (rate limit; the stock-screener endpoint itself is not included — see `references/fmp_api_guide.md`)
 - Each stock analyzed requires 6 API calls (quote, dividend, prices, income, balance, cashflow, metrics)
 - Maximum ~40 stocks per day in FMP-only mode on a plan that includes the screener
 

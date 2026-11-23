@@ -1,6 +1,6 @@
 ---
 name: fitness-workout-manager
-description: "运动健康管家 Pro — 专为 Open Claw + 飞书生态打造的 AI 健身管家。双模式打卡（事后总结 / 边练边记）、3 层 Session 防丢失、飞书云文档同步、极致 Token 优化。Route to this skill when the user mentions workouts, logs exercises, asks for fitness stats, or provides post-workout feedback."
+description: "记录健身/网球训练打卡、查训练统计与周月报，用户提到训练或要数据时用。"
 version: 1.2.2
 metadata: {"clawdbot":{"emoji":"💪","requires":{"bins":["python3"],"env":[]},"os":["linux","darwin"]}}
 ---
@@ -22,6 +22,15 @@ metadata: {"clawdbot":{"emoji":"💪","requires":{"bins":["python3"],"env":[]},"
 
 - **Capabilities**: Stateful session handling (`fitness-log start/end`), NLP workout parsing, localized JSON storage, Feishu document sync, auto-stale-session cleanup.
 - **Trigger**: Route here when the user mentions workout routines, logs exercises, asks for fitness stats (`fitness-status`), or provides unstructured post-workout feedback.
+
+## When to Use
+
+按上节 Trigger 触发，具体包括：
+
+- 用户提到训练安排或练了什么（如"打网球 2 小时感觉很累"、"卧推 60kg 8个 3组"）
+- 用户要打卡/记录、开始或结束一次 session（`fitness-log start|end`）
+- 用户要训练统计与周/月报（`fitness-status`、`--week`、`--month`、`--export`）
+- 用户提供练后的非结构化反馈，需要解析入库
 
 ## Quick Start
 

@@ -35,7 +35,7 @@ This screener supports two screening modes:
 - **250 requests per day**
 - **Rate limit**: ~5 requests per second
 - **No credit card required**
-- The 250 calls/day budget covers a small two-stage universe, but the budget is not the binding constraint: the endpoints must be included in the plan. The stock-screener endpoint used by FMP-only mode is not on the free plan (2026-11), and the per-symbol analysis endpoints (ratios, income-statement, dividends, historical prices) were reported returning HTTP 402 in a synthetic review for issue #777 (not verified on a live Basic key). When any of them is plan-gated, the screeners report the run as plan-gated instead of returning zero candidates. See `docs/en/getting-started.md#fmp-plans`.
+- The 250 calls/day budget covers a small two-stage universe, but the budget is not the binding constraint: the endpoints must be included in the plan. The stock-screener endpoint used by FMP-only mode is not on the free plan (2026-11), and the per-symbol analysis endpoints (ratios, income-statement, dividends, historical prices) were reported returning HTTP 402 in a synthetic review for issue #777 (not verified on a live Basic key). When any of them is plan-gated, the screeners report the run as plan-gated instead of returning zero candidates. See the **Paid Plans (Optional)** section of this file.
 
 ### Paid Plans (Optional)
 
@@ -113,7 +113,7 @@ When using `--use-finviz`, the screener applies these filters via FINVIZ Elite A
 - 5%+ EPS/sales growth captures growing businesses (not just mature dividend payers)
 - 0.5-3% yield range excludes mature high-yielders (>4%) and focuses on growth stocks
 - Reduces FINVIZ candidates from ~90 to ~30-50 stocks
-- Keeps FMP API usage low with efficient analysis (250 requests/day); the stock-screener endpoint used by FMP-only mode is plan-gated (see `docs/en/getting-started.md#fmp-plans`)
+- Keeps FMP API usage low with efficient analysis (250 requests/day); the stock-screener endpoint used by FMP-only mode is plan-gated (see the **Paid Plans (Optional)** section of this file)
 
 ## Key Endpoints Used
 

@@ -35,7 +35,7 @@
       "source": "file"
     },
     "design/web-artifacts-builder": {
-      "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
+      "description": "构建多组件 React+Tailwind 的 HTML artifact，需复杂前端演示页面时用。",
       "domain": "design",
       "installed_as": "web-artifacts-builder",
       "origin": {
@@ -372,7 +372,7 @@
       "source": "file"
     },
     "education/ielts-mock-review": {
-      "description": "Review a completed IELTS mock test with section scores, timing, question-level results, writing, and speaking evidence, then choose a small set of high-impact repair tasks. Use when a learner asks to analyse a mock exam, interpret score changes, identify the biggest weaknesses, or make a post-mock study plan.",
+      "description": "复盘雅思模考（听说读写分数与错题），用户要分析模考或定补强计划时用。",
       "domain": "education",
       "installed_as": "ielts-mock-review",
       "origin": {
@@ -517,7 +517,7 @@
       "source": "file"
     },
     "finance/dividend-growth-pullback-screener": {
-      "description": "Use this skill to find high-quality dividend growth stocks (12%+ annual dividend growth, 1.5%+ yield) that are experiencing temporary pullbacks, identified by RSI oversold conditions (RSI ≤40). This skill combines fundamental dividend analysis with technical timing indicators to identify buying opportunities in strong dividend growers during short-term weakness.",
+      "description": "找股息高增长(12%+)且RSI超卖回调的股票买点，用户要择时买股息成长股时用。",
       "domain": "finance",
       "installed_as": "dividend-growth-pullback-screener",
       "origin": {
@@ -774,7 +774,7 @@
       "source": "file"
     },
     "finance/value-dividend-screener": {
-      "description": "Screen US stocks for high-quality dividend opportunities combining value characteristics (P/E ratio under 20, P/B ratio under 2), attractive yields (3% or higher), and consistent growth (dividend/revenue/EPS trending up over 3 years). Supports two-stage screening using FINVIZ Elite API for efficient pre-filtering followed by FMP API for detailed analysis. Use when user requests dividend stock screening, income portfolio ideas, or quality value stocks with strong fundamentals.",
+      "description": "筛选高股息价值股（低PE/PB、股息≥3%、三年增长），用户要股息选股或收益组合时用。",
       "domain": "finance",
       "installed_as": "value-dividend-screener",
       "origin": {
@@ -852,7 +852,7 @@
       "source": "file"
     },
     "health/fitness-workout-manager": {
-      "description": "运动健康管家 Pro — 专为 Open Claw + 飞书生态打造的 AI 健身管家。双模式打卡（事后总结 / 边练边记）、3 层 Session 防丢失、飞书云文档同步、极致 Token 优化。Route to this skill when the user mentions workouts, logs exercises, asks for fitness stats, or provides post-workout feedback.",
+      "description": "记录健身/网球训练打卡、查训练统计与周月报，用户提到训练或要数据时用。",
       "domain": "health",
       "installed_as": "fitness-workout-manager",
       "origin": {

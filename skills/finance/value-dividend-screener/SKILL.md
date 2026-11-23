@@ -1,6 +1,6 @@
 ---
 name: value-dividend-screener
-description: Screen US stocks for high-quality dividend opportunities combining value characteristics (P/E ratio under 20, P/B ratio under 2), attractive yields (3% or higher), and consistent growth (dividend/revenue/EPS trending up over 3 years). Supports two-stage screening using FINVIZ Elite API for efficient pre-filtering followed by FMP API for detailed analysis. Use when user requests dividend stock screening, income portfolio ideas, or quality value stocks with strong fundamentals.
+description: "筛选高股息价值股（低PE/PB、股息≥3%、三年增长），用户要股息选股或收益组合时用。"
 ---
 
 # Value Dividend Screener
@@ -14,7 +14,7 @@ This skill identifies high-quality dividend stocks that combine value characteri
 
 Screen US equities based on quantitative criteria including valuation ratios, dividend metrics, financial health, and profitability. Generate comprehensive reports ranking stocks by composite quality scores with detailed fundamental analysis.
 
-**Efficiency Advantage**: Using FINVIZ pre-screening can reduce FMP API calls by 90% and keeps API usage low. The stock-screener endpoint used by FMP-only mode is not on the free plan (2026-11); use `--use-finviz` or a plan that includes it (see `docs/en/getting-started.md#fmp-plans`).
+**Efficiency Advantage**: Using FINVIZ pre-screening can reduce FMP API calls by 90% and keeps API usage low. The stock-screener endpoint used by FMP-only mode is not on the free plan (2026-11); use `--use-finviz` or a plan that includes it (see `references/fmp_api_guide.md`).
 
 ## When to Use
 
@@ -28,7 +28,7 @@ Invoke this skill when the user requests:
 
 ## Prerequisites
 
-- **FMP API key:** Required. Set `FMP_API_KEY` or pass `--fmp-api-key`. The stock-screener endpoint is not on the free plan (2026-11); use `--use-finviz` or an FMP plan that includes it (see `docs/en/getting-started.md#fmp-plans`).
+- **FMP API key:** Required. Set `FMP_API_KEY` or pass `--fmp-api-key`. The stock-screener endpoint is not on the free plan (2026-11); use `--use-finviz` or an FMP plan that includes it (see `references/fmp_api_guide.md`).
 - **FINVIZ Elite API key:** Recommended, not required. Set `FINVIZ_API_KEY` or pass `--finviz-api-key` and use `--use-finviz` for two-stage screening. Without it the screener runs FMP-only and uses more API calls.
 - **Python:** 3.9+ with `requests>=2.31.0` (see `requirements.txt`).
 

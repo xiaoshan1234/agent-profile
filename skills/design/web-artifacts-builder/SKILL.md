@@ -1,6 +1,6 @@
 ---
 name: web-artifacts-builder
-description: Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.
+description: "构建多组件 React+Tailwind 的 HTML artifact，需复杂前端演示页面时用。"
 license: Complete terms in LICENSE.txt
 ---
 
@@ -14,6 +14,13 @@ To build powerful frontend claude.ai artifacts, follow these steps:
 5. (Optional) Test the artifact
 
 **Stack**: React 18 + TypeScript + Vite + Parcel (bundling) + Tailwind CSS + shadcn/ui
+
+## When to Use
+
+- 需要多组件、带状态管理或路由的复杂前端 artifact（React + Tailwind + shadcn/ui）
+- 需要打包成单个自包含 HTML 文件交付/分享
+
+**不适用**：简单的单文件 HTML/JSX 片段，直接写文件即可，不必初始化脚手架。
 
 ## Design & Style Guidelines
 

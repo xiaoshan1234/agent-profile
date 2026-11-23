@@ -24,7 +24,7 @@ Moved verbatim from `SKILL.md`.
 - Annual: $299.50 (~$24.96/month)
 
 **FMP API:**
-- Free tier: 250 calls/day rate limit. The stock-screener endpoint used by FMP-only screening is not on the free plan (2026-11). Two-stage screening needs the per-symbol analysis endpoints too (ratios, income-statement, dividends, historical prices), which were reported returning HTTP 402 in a synthetic review for issue #777 (not verified on a live Basic key); when any of them is plan-gated, the screener reports the run as plan-gated instead of returning zero candidates. See `docs/en/getting-started.md#fmp-plans`.
+- Free tier: 250 calls/day rate limit. The stock-screener endpoint used by FMP-only screening is not on the free plan (2026-11). Two-stage screening needs the per-symbol analysis endpoints too (ratios, income-statement, dividends, historical prices), which were reported returning HTTP 402 in a synthetic review for issue #777 (not verified on a live Basic key); when any of them is plan-gated, the screener reports the run as plan-gated instead of returning zero candidates. See `references/fmp_api_guide.md`.
 - Paid plans: prices and limits change; see `site.financialmodelingprep.com/pricing-plans` in a browser
 
 **Recommendation:**
