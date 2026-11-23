@@ -12,6 +12,19 @@
       "path": "skills/design/claude-design",
       "source": "file"
     },
+    "design/figma-code-connect-components": {
+      "description": "Connects Figma design components to code components using Code Connect mapping tools. Use when user says \"code connect\", \"connect this component to code\", \"map this component\", \"link component to code\", \"create code connect mapping\", or wants to establish mappings between Figma designs and code implementations. For canvas writes via `use_figma`, use `figma-use`.",
+      "domain": "design",
+      "installed_as": "figma-code-connect-components",
+      "origin": {
+        "note": "scout:openai/skills/skills/.curated/figma-code-connect-components",
+        "type": "vendor",
+        "url": "https://github.com/openai/skills",
+        "via": "github"
+      },
+      "path": "skills/design/figma-code-connect-components",
+      "source": "file"
+    },
     "design/pixel-art": {
       "description": "Pixel art w/ era palettes (NES, Game Boy, PICO-8).",
       "domain": "design",
@@ -117,6 +130,19 @@
         "via": "skills.sh"
       },
       "path": "skills/documents/ocr-document-processor",
+      "source": "file"
+    },
+    "documents/ocr-local-no-api-key": {
+      "description": "Extract text from images using Tesseract.js OCR (100% local, no API key required). Supports Chinese (simplified/traditional) and English.",
+      "domain": "documents",
+      "installed_as": "ocr-local-no-api-key",
+      "origin": {
+        "note": "scout:ocr-local",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/ocr-local",
+        "via": "clawhub"
+      },
+      "path": "skills/documents/ocr-local-no-api-key",
       "source": "file"
     },
     "documents/ocr-word": {
@@ -705,6 +731,19 @@
         "type": "vendor"
       },
       "path": "skills/finance/small-cap-growth-identifier",
+      "source": "file"
+    },
+    "finance/stock-dividend-aisa": {
+      "description": "Analyze read-only dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score, income rating, and Dividend Aristocrat/King status without placing trades, making purchases, or managing brokerage accounts. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
+      "domain": "finance",
+      "installed_as": "stock-dividend-aisa",
+      "origin": {
+        "note": "scout:stock-dividend-aisa",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/stock-dividend-aisa",
+        "via": "clawhub"
+      },
+      "path": "skills/finance/stock-dividend-aisa",
       "source": "file"
     },
     "finance/stock-eval": {
