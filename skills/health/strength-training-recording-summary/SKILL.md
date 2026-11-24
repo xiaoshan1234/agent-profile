@@ -1,6 +1,6 @@
 ---
 name: strength-training-recording-summary
-description: "Create WorkoutSummary notes from strength-training recordings or transcripts. Accepts audio (.m4a, .mp3, .wav, .caf) and transcript files (.md, .txt, .srt, .vtt, .json); outputs total time, exercises completed, sets/reps, durations, and concise coach notes."
+description: "Summarize strength-training sessions into workout notes."
 license: "MIT"
 ---
 

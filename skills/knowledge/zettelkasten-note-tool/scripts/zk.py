@@ -284,7 +284,8 @@ def cmd_search(args):
         print(c("yellow", f"No results for '{query}'"))
         return
 
-    print(f"\n{c('bold', f'Search: \"{query}\"')} — {len(results)} note(s)\n")
+    header = 'Search: "%s"' % query
+    print(f"\n{c('bold', header)} — {len(results)} note(s)\n")
     for path, title, lines in results:
         rel = path.relative_to(vault)
         print(f"  {c('cyan', str(rel))}")

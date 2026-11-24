@@ -1,11 +1,6 @@
 ---
 name: claude-obsidian
-description: >
-  Claude-Obsidian 风格个人知识库构建与自动整理。当用户提到以下任何场景时激活：
-  知识库、笔记整理、自动双向链接、Obsidian、第二大脑、卡片笔记、原子化笔记、
-  个人知识管理、PKM、Zettelkasten、卢曼笔记法、笔记原子化、笔记链接、
-  知识图谱笔记、raw/wiki/output三层、知识引擎、笔记自动归类、
-  建立个人知识库、整理旧笔记、AI自动织网、知识复利、note-taking knowledge engine
+description: Obsidian 个人知识库构建与自动整理（raw/wiki/output 三层）。
 author: 一休（赵铭远团队）
 version: 1.0.0
 ---

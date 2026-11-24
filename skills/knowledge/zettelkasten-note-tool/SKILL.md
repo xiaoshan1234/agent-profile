@@ -1,6 +1,6 @@
 ---
 name: zettelkasten-note-tool
-description: Create, manage, and operate a Zettelkasten slip-box note system using the zk.py CLI script. Use this skill whenever a user wants to build or use a Zettelkasten note system, manage atomic notes, create fleeting/literature/permanent notes, link notes together, find orphaned notes, generate Maps of Content, or search/browse a note vault. Trigger on phrases like "zettelkasten", "slip box notes", "atomic notes", "permanent notes", "znote", "zk notes", "note vault", "create a note", "link my notes", "find orphaned notes", "map of content", or "manage my notes with zk".
+description: Manage a Zettelkasten slip-box vault via the zk.py CLI.
 ---
 
 # znote: Zettelkasten CLI Note Manager

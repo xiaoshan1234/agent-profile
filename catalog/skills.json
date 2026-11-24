@@ -13,7 +13,7 @@
       "source": "file"
     },
     "design/figma-code-connect-components": {
-      "description": "Connects Figma design components to code components using Code Connect mapping tools. Use when user says \"code connect\", \"connect this component to code\", \"map this component\", \"link component to code\", \"create code connect mapping\", or wants to establish mappings between Figma designs and code implementations. For canvas writes via `use_figma`, use `figma-use`.",
+      "description": "Map Figma components to code with Code Connect.",
       "domain": "design",
       "installed_as": "figma-code-connect-components",
       "origin": {
@@ -216,7 +216,7 @@
       "source": "file"
     },
     "education/english-speaking-practice": {
-      "description": "英语口语练习助手，包含对话训练和任务推送两大功能。需要用户发送语音或文字消息且内容与英语练习相关时触发对话训练；定时触发任务推送。",
+      "description": "英语口语练习：对话训练即时反馈 + 定时任务推送。",
       "domain": "education",
       "installed_as": "english-speaking-practice",
       "origin": {
@@ -904,7 +904,7 @@
       "source": "file"
     },
     "health/strength-training-recording-summary": {
-      "description": "Create WorkoutSummary notes from strength-training recordings or transcripts. Accepts audio (.m4a, .mp3, .wav, .caf) and transcript files (.md, .txt, .srt, .vtt, .json); outputs total time, exercises completed, sets/reps, durations, and concise coach notes.",
+      "description": "Summarize strength-training sessions into workout notes.",
       "domain": "health",
       "installed_as": "strength-training-recording-summary",
       "origin": {
@@ -956,7 +956,7 @@
       "source": "file"
     },
     "knowledge/claude-obsidian": {
-      "description": "Claude-Obsidian 风格个人知识库构建与自动整理。当用户提到以下任何场景时激活： 知识库、笔记整理、自动双向链接、Obsidian、第二大脑、卡片笔记、原子化笔记、 个人知识管理、PKM、Zettelkasten、卢曼笔记法、笔记原子化、笔记链接、 知识图谱笔记、raw/wiki/output三层、知识引擎、笔记自动归类、 建立个人知识库、整理旧笔记、AI自动织网、知识复利、note-taking knowledge engine",
+      "description": "Obsidian 个人知识库构建与自动整理（raw/wiki/output 三层）。",
       "domain": "knowledge",
       "installed_as": "claude-obsidian",
       "origin": {
@@ -1008,7 +1008,7 @@
       "source": "file"
     },
     "knowledge/zettelkasten-note-tool": {
-      "description": "Create, manage, and operate a Zettelkasten slip-box note system using the zk.py CLI script. Use this skill whenever a user wants to build or use a Zettelkasten note system, manage atomic notes, create fleeting/literature/permanent notes, link notes together, find orphaned notes, generate Maps of Content, or search/browse a note vault. Trigger on phrases like \"zettelkasten\", \"slip box notes\", \"atomic notes\", \"permanent notes\", \"znote\", \"zk notes\", \"note vault\", \"create a note\", \"link my notes\", \"find orphaned notes\", \"map of content\", or \"manage my notes with zk\".",
+      "description": "Manage a Zettelkasten slip-box vault via the zk.py CLI.",
       "domain": "knowledge",
       "installed_as": "zettelkasten-note-tool",
       "origin": {
