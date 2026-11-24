@@ -1,6 +1,19 @@
 {
   "schema": 1,
   "skills": {
+    "design/accessibility-a11y": {
+      "description": "Implement web accessibility (a11y) best practices following WCAG guidelines to create inclusive, accessible user interfaces.",
+      "domain": "design",
+      "installed_as": "accessibility-a11y",
+      "origin": {
+        "note": "scout:skills-sh/mindrally/skills/accessibility-a11y",
+        "type": "vendor",
+        "url": "https://github.com/mindrally/skills",
+        "via": "skills.sh"
+      },
+      "path": "skills/design/accessibility-a11y",
+      "source": "file"
+    },
     "design/claude-design": {
       "description": "Design one-off HTML artifacts (landing, deck, prototype).",
       "domain": "design",
@@ -145,6 +158,32 @@
       "path": "skills/documents/ocr-local-no-api-key",
       "source": "file"
     },
+    "documents/ocr-local-v2": {
+      "description": "Extract text from images using Tesseract.js OCR (100% local, no API key required). Supports Chinese (simplified/traditional) and English.",
+      "domain": "documents",
+      "installed_as": "ocr-local-v2",
+      "origin": {
+        "note": "scout:ocr-local-v2",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/ocr-local-v2",
+        "via": "clawhub"
+      },
+      "path": "skills/documents/ocr-local-v2",
+      "source": "file"
+    },
+    "documents/ocr-locally": {
+      "description": "[macOS only] Use this skill when the user requests OCR (Optical Character Recognition), image/PDF text extraction. Uses macOS native Vision/PDFKit frameworks. Triggers: '识别图片', 'OCR', '提取图片文字', '提取PDF文字', '识别PDF', 'extract text from image', 'PDF OCR'.",
+      "domain": "documents",
+      "installed_as": "ocr-locally",
+      "origin": {
+        "note": "scout:ocr-locally",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/ocr-locally",
+        "via": "clawhub"
+      },
+      "path": "skills/documents/ocr-locally",
+      "source": "file"
+    },
     "documents/ocr-word": {
       "description": "批量提取图片文字、标注关键词、生成Word文档。当用户上传带文字的图片（单张或多张）时，自动识别文字，根据用户提供的关键词进行标注加粗，并输出为连续的Word文档格式。适用于学生整理课件重点、文献标注、复习资料制作等场景。",
       "domain": "documents",
@@ -239,6 +278,19 @@
         "via": "clawhub"
       },
       "path": "skills/education/english-speaking-writing-coach",
+      "source": "file"
+    },
+    "education/esl-ep-grader": {
+      "description": "Batch-grade English written homework for Chinese elementary students (Grades 3–6).\nUse when: (1) user submits student English written work (sentences, short paragraphs, workbooks) for correction and feedback;\n(2) user asks to check/grade/mark English assignments for elementary school;\n(3) user needs rubric-based scoring and improvement suggestions for young ESL learners.\nSupports parametric reuse: grade level, assignment type, scoring rubric, and language of feedback are all configurable.",
+      "domain": "education",
+      "installed_as": "esl-ep-grader",
+      "origin": {
+        "note": "scout:esl-ep-grader",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/esl-ep-grader",
+        "via": "clawhub"
+      },
+      "path": "skills/education/esl-ep-grader",
       "source": "file"
     },
     "education/fluent-db-updater": {
@@ -731,6 +783,19 @@
         "type": "vendor"
       },
       "path": "skills/finance/small-cap-growth-identifier",
+      "source": "file"
+    },
+    "finance/stock-dividend": {
+      "description": "Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.",
+      "domain": "finance",
+      "installed_as": "stock-dividend",
+      "origin": {
+        "note": "scout:stock-dividend",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/stock-dividend",
+        "via": "clawhub"
+      },
+      "path": "skills/finance/stock-dividend",
       "source": "file"
     },
     "finance/stock-dividend-aisa": {
