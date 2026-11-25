@@ -1,6 +1,6 @@
 ---
 name: stock-watcher
-description: Manage and monitor a personal stock watchlist with support for adding, removing, listing stocks, and summarizing their recent performance using data from 10jqka.com.cn. Use when the user wants to track specific stocks, get performance summaries, or manage their watchlist.
+description: A-share watchlist: add, remove, list stocks + quote summary
 ---
 
 # Stock Watcher Skill
