@@ -38,6 +38,19 @@
       "path": "skills/design/figma-code-connect-components",
       "source": "file"
     },
+    "design/figma-create-design-system-rules": {
+      "description": "Generates custom design system rules for the user's codebase. Use when user says \"create design system rules\", \"generate rules for my project\", \"set up design rules\", \"customize design system guidelines\", or wants to establish project-specific conventions for Figma-to-code workflows. Requires Figma MCP server connection.",
+      "domain": "design",
+      "installed_as": "figma-create-design-system-rules",
+      "origin": {
+        "note": "scout:skills-sh/openai/skills/figma-create-design-system-rules",
+        "type": "vendor",
+        "url": "https://github.com/openai/skills",
+        "via": "skills.sh"
+      },
+      "path": "skills/design/figma-create-design-system-rules",
+      "source": "file"
+    },
     "design/pixel-art": {
       "description": "Pixel art w/ era palettes (NES, Game Boy, PICO-8).",
       "domain": "design",
@@ -182,6 +195,32 @@
         "via": "clawhub"
       },
       "path": "skills/documents/ocr-locally",
+      "source": "file"
+    },
+    "documents/ocr-test": {
+      "description": "Extract text from images using Tesseract.js OCR. Supports Chinese (simplified/traditional) and English.",
+      "domain": "documents",
+      "installed_as": "ocr-test",
+      "origin": {
+        "note": "scout:ocr-skill-test",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/ocr-skill-test",
+        "via": "clawhub"
+      },
+      "path": "skills/documents/ocr-test",
+      "source": "file"
+    },
+    "documents/ocr-with-python": {
+      "description": "Optical Character Recognition (OCR) tool, supports Chinese and English text extraction from PDFs and images. Use cases: (1) extract text from scanned PDFs, (2) recognize text from images, (3) extract text content from invoices, contracts, and other documents",
+      "domain": "documents",
+      "installed_as": "ocr-with-python",
+      "origin": {
+        "note": "scout:ocr-python",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/ocr-python",
+        "via": "clawhub"
+      },
+      "path": "skills/documents/ocr-with-python",
       "source": "file"
     },
     "documents/ocr-word": {
@@ -423,6 +462,32 @@
         "type": "vendor"
       },
       "path": "skills/education/fluent-writing",
+      "source": "file"
+    },
+    "education/grammar-checker": {
+      "description": "AI-powered English grammar, spelling, and style checker.",
+      "domain": "education",
+      "installed_as": "grammar-checker",
+      "origin": {
+        "note": "scout:grammar-checker",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/grammar-checker",
+        "via": "clawhub"
+      },
+      "path": "skills/education/grammar-checker",
+      "source": "file"
+    },
+    "education/grammar-checker-ama": {
+      "description": "Grammar checking tool for AMA style medical writing",
+      "domain": "education",
+      "installed_as": "grammar-checker-ama",
+      "origin": {
+        "note": "scout:grammar-checker-ama",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/grammar-checker-ama",
+        "via": "clawhub"
+      },
+      "path": "skills/education/grammar-checker-ama",
       "source": "file"
     },
     "education/ielts-grading-skill": {
