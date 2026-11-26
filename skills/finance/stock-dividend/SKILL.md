@@ -1,12 +1,11 @@
 ---
 name: stock-dividend
-description: Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.
+description: 查询股票股息数据与安全性评分（AIsa API，只读）。
 author: AIsa
 version: 1.0.1
 license: Apache-2.0
 homepage: https://aisa.one
 source: https://github.com/baofeng-tech/agent-skills-io/tree/main/targetSkills/stock-dividend
-user-invocable: true
 primaryEnv: AISA_API_KEY
 requires:
   bins:

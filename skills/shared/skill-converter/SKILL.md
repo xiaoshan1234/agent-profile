@@ -54,10 +54,10 @@ Common options:
 
 1. Inspect the source directory and identify its format. Completion criterion: source `SKILL.md`, support files, scripts, and external dependencies are accounted for.
 2. Run the converter with `--dry-run` and review the planned destination and platform choice. Completion criterion: the target `<domain>/<name>` is correct.
-3. Run the real conversion. Completion criterion: the destination contains `SKILL.md`, copied support files, and `references/conversion-report.md`.
+3. Run the real conversion. Completion criterion: the destination contains `SKILL.md`, copied support files, and the conversion report under `references/`.
 4. Read the conversion report. Review every warning about tool names, OpenClaw metadata, Codex UI metadata, platform-specific commands, and credentials.
 5. Edit the converted body if needed so commands and tools are valid for Hermes. Completion criterion: all executable instructions use available Hermes tools or explicitly documented CLIs.
-6. Run `python3 scripts/rebuild_catalog.py` and `python3 scripts/validate_repo.py --check-generated`. Completion criterion: the new skill is cataloged and validation passes.
+6. Run `python3 <repo-root>/scripts/rebuild_catalog.py` and `python3 <repo-root>/scripts/validate_repo.py --check-generated`. Completion criterion: the new skill is cataloged and validation passes.
 7. Test the converted skill in an isolated task before adding it to common skills or a role.
 
 ## Conversion Boundaries
@@ -73,7 +73,7 @@ Automatically handled:
 
 Reported for manual review:
 
-- Claude/Codex tool names such as `Bash`, `Read`, `Write`, `Edit`, `Glob`, and `Grep`.
+- Claude/Codex tool names that need manual mapping: Bash→terminal, Read→read_file, Write→write_file, Edit→patch, Glob/Grep→search_files.
 - OpenClaw `metadata.openclaw` requirements and invocation fields.
 - Commands tied to Codex, Claude, OpenClaw, or skills.sh ecosystems.
 - Credentials, network access, and destructive operations.

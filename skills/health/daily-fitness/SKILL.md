@@ -1,6 +1,6 @@
 ---
 name: daily-fitness
-description: "Daily no-equipment workout — 5–15 min bodyweight routines (HIIT, yoga, core, mobility) with instructions and streak tracking. Works at home, office, or travel."
+description: "生成每日无器械运动方案，含动作说明与连续打卡。"
 keywords:
   - 今日运动
   - 每日锻炼

@@ -39,7 +39,7 @@
       "source": "file"
     },
     "design/figma-create-design-system-rules": {
-      "description": "Generates custom design system rules for the user's codebase. Use when user says \"create design system rules\", \"generate rules for my project\", \"set up design rules\", \"customize design system guidelines\", or wants to establish project-specific conventions for Figma-to-code workflows. Requires Figma MCP server connection.",
+      "description": "生成项目专属 design system 规则，指导 Figma 设计转代码。",
       "domain": "design",
       "installed_as": "figma-create-design-system-rules",
       "origin": {
@@ -851,7 +851,7 @@
       "source": "file"
     },
     "finance/stock-dividend": {
-      "description": "Analyze dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score (0-100), income rating, and Dividend Aristocrat/King status. Use when the user asks about dividends, income investing, or dividend safety.",
+      "description": "查询股票股息数据与安全性评分（AIsa API，只读）。",
       "domain": "finance",
       "installed_as": "stock-dividend",
       "origin": {
@@ -864,7 +864,7 @@
       "source": "file"
     },
     "finance/stock-dividend-aisa": {
-      "description": "Analyze read-only dividend metrics for stocks via AIsa API. Provides yield, payout ratio, growth CAGR, safety score, income rating, and Dividend Aristocrat/King status without placing trades, making purchases, or managing brokerage accounts. Use when: the user needs market data, stock analysis, dividend research, or read-only financial data workflows.",
+      "description": "只读分析股票股息指标，含收益率、派息率与安全性评分。",
       "domain": "finance",
       "installed_as": "stock-dividend-aisa",
       "origin": {
@@ -956,7 +956,7 @@
       "source": "file"
     },
     "health/daily-fitness": {
-      "description": "Daily no-equipment workout — 5–15 min bodyweight routines (HIIT, yoga, core, mobility) with instructions and streak tracking. Works at home, office, or travel.",
+      "description": "生成每日无器械运动方案，含动作说明与连续打卡。",
       "domain": "health",
       "installed_as": "daily-fitness",
       "origin": {
