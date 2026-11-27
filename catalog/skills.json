@@ -64,6 +64,19 @@
       "path": "skills/design/figma-generate-design",
       "source": "file"
     },
+    "design/figma-implement-design": {
+      "description": "Translates Figma designs into production-ready application code with 1:1 visual fidelity. Use when implementing UI code from Figma files, when user mentions \"implement design\", \"generate code\", \"implement component\", provides Figma URLs, or asks to build components matching Figma specs. For Figma canvas writes via `use_figma`, use `figma-use`.",
+      "domain": "design",
+      "installed_as": "figma-implement-design",
+      "origin": {
+        "note": "scout:skills-sh/openai/skills/figma-implement-design",
+        "type": "vendor",
+        "url": "https://github.com/openai/skills",
+        "via": "skills.sh"
+      },
+      "path": "skills/design/figma-implement-design",
+      "source": "file"
+    },
     "design/pixel-art": {
       "description": "Pixel art w/ era palettes (NES, Game Boy, PICO-8).",
       "domain": "design",
@@ -968,6 +981,19 @@
       "path": "skills/finance/value-dividend-screener",
       "source": "file"
     },
+    "health/build-workout": {
+      "description": "Build a structured workout and send it to the user's Apple Watch with the Workouter MCP tools. Use when the user wants to create, plan, or send a run, ride, swim, walk, hike, row, elliptical, strength, HIIT, EMOM, circuit, or interval workout to their watch, or asks for \"a workout\" they can follow on their wrist.",
+      "domain": "health",
+      "installed_as": "build-workout",
+      "origin": {
+        "note": "scout:workouter",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/workouter",
+        "via": "clawhub"
+      },
+      "path": "skills/health/build-workout",
+      "source": "file"
+    },
     "health/daily-fitness": {
       "description": "生成每日无器械运动方案，含动作说明与连续打卡。",
       "domain": "health",
@@ -1122,6 +1148,19 @@
         "via": "clawhub"
       },
       "path": "skills/knowledge/claude-obsidian",
+      "source": "file"
+    },
+    "knowledge/notes-know-you": {
+      "description": "Sync Evernote notebooks to local Markdown, analyze your notes, and update USER.md + Memory files so the AI truly understands who you are",
+      "domain": "knowledge",
+      "installed_as": "notes-know-you",
+      "origin": {
+        "note": "scout:notes-know-you",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/notes-know-you",
+        "via": "clawhub"
+      },
+      "path": "skills/knowledge/notes-know-you",
       "source": "file"
     },
     "knowledge/notes-knowledge-mapper": {
