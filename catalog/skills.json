@@ -172,7 +172,7 @@
       "source": "file"
     },
     "documents/ocr-local-no-api-key": {
-      "description": "Extract text from images using Tesseract.js OCR (100% local, no API key required). Supports Chinese (simplified/traditional) and English.",
+      "description": "Local OCR: extract Chinese/English text from images",
       "domain": "documents",
       "installed_as": "ocr-local-no-api-key",
       "origin": {
@@ -185,7 +185,7 @@
       "source": "file"
     },
     "documents/ocr-local-v2": {
-      "description": "Extract text from images using Tesseract.js OCR (100% local, no API key required). Supports Chinese (simplified/traditional) and English.",
+      "description": "Local OCR: extract Chinese/English text from images",
       "domain": "documents",
       "installed_as": "ocr-local-v2",
       "origin": {
@@ -211,7 +211,7 @@
       "source": "file"
     },
     "documents/ocr-test": {
-      "description": "Extract text from images using Tesseract.js OCR. Supports Chinese (simplified/traditional) and English.",
+      "description": "Local OCR: extract Chinese/English text from images",
       "domain": "documents",
       "installed_as": "ocr-test",
       "origin": {
@@ -237,7 +237,7 @@
       "source": "file"
     },
     "documents/ocr-word": {
-      "description": "批量提取图片文字、标注关键词、生成Word文档。当用户上传带文字的图片（单张或多张）时，自动识别文字，根据用户提供的关键词进行标注加粗，并输出为连续的Word文档格式。适用于学生整理课件重点、文献标注、复习资料制作等场景。",
+      "description": "图片OCR提取中文文字，按关键词加粗，输出Word文档",
       "domain": "documents",
       "installed_as": "ocr-word",
       "origin": {
@@ -1086,7 +1086,7 @@
       "source": "file"
     },
     "health/workout-track": {
-      "description": "Log a strength training session and insert it into the life_db database. Use when the user shares their gym session, exercises, sets, reps, weights, RPE, rest times, session duration, feelings, or asks to record a workout.",
+      "description": "Record strength workouts (sets/reps) into life_db",
       "domain": "health",
       "installed_as": "workout-track",
       "origin": {

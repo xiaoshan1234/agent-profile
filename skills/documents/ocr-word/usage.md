@@ -12,14 +12,14 @@
 ## 🚀 使用方法
 
 ### 方法一：直接对话（推荐）
-1. 在 Claude 中加载本 Skill
+1. 在 Hermes 中加载本 Skill
 2. 上传一张或多张图片
-3. 告诉 Claude 您要提取文字，并提供关键词
+3. 告诉 Hermes 您要提取文字，并提供关键词
 4. 示例：*"帮我提取这些课件图片里的文字，关键词是：人工智能、深度学习、卷积神经网络"*
-5. Claude 会自动输出带加粗关键词的文字内容
+5. Hermes 会自动输出带加粗关键词的文字内容
 
 ### 方法二：使用辅助脚本
-如果您已经提取了文字（纯文本格式），可以使用 `scripts/format_output.py` 批量加粗关键词：
+如果您已经提取了文字（纯文本格式），可以使用 `scripts.py` 批量加粗关键词：
 
 ```bash
-python scripts/format_output.py --input input.txt --keywords "人工智能,深度学习" --output output.txt
+python scripts.py --input input.txt --keywords "人工智能,深度学习" --output output.txt

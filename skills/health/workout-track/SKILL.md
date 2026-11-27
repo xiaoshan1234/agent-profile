@@ -1,6 +1,6 @@
 ---
 name: workout-track
-description: Log a strength training session and insert it into the life_db database. Use when the user shares their gym session, exercises, sets, reps, weights, RPE, rest times, session duration, feelings, or asks to record a workout.
+description: Record strength workouts (sets/reps) into life_db
 metadata: {"openclaw":{"requires":{"bins":["uv"]}}}
 ---
 
@@ -54,11 +54,11 @@ Save? (yes / no)
 
 ### 3. Insert
 
-Only after confirmation, use the `exec` tool:
+Only after confirmation, use the `terminal` tool:
 
 ```json
 {
-  "tool": "exec",
+  "tool": "terminal",
   "command": "bash -c 'set -a; source ~/.openclaw/services/life-db/.env; uv run --project ~/.openclaw {baseDir}/scripts/insert_workout.py <json>'"
 }
 ```
