@@ -1,7 +1,6 @@
 ---
 name: notes-know-you
-description: Sync Evernote notebooks to local Markdown, analyze your notes, and update USER.md + Memory files so the AI truly understands who you are
-user-invocable: true
+description: Sync Evernote notes to Markdown, update user memory
 metadata:
   openclaw:
     requires:
@@ -143,7 +142,7 @@ Locate the memory directory:
 Read existing `USER.md` if it exists. **Merge, do not overwrite** — preserve facts not
 contradicted by the notes.
 
-Write (or update) `USER.md` with this structure:
+Create (or update) `USER.md` with this structure:
 
 ```markdown
 # User Profile

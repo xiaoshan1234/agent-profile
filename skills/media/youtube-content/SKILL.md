@@ -13,7 +13,7 @@ metadata:
 
 # YouTube Content Tool
 
-## When to use
+## When to Use
 
 Use when the user shares a YouTube URL or video link, asks to summarize a video, requests a transcript, or wants to extract and reformat content from any YouTube video. Transforms transcripts into structured content (chapters, summaries, threads, blog posts).
 
