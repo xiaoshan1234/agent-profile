@@ -1189,6 +1189,19 @@
       "path": "skills/knowledge/notes-local-apple-notion-obsidian-more",
       "source": "file"
     },
+    "knowledge/notes-sync-cli-free": {
+      "description": "通过命令行高效管理本地Markdown笔记库，支持搜索、创建、移动与Frontmatter基础操作。",
+      "domain": "knowledge",
+      "installed_as": "notes-sync-cli-free",
+      "origin": {
+        "note": "scout:notes-sync-cli-free",
+        "type": "vendor",
+        "url": "https://clawhub.ai/skills/notes-sync-cli-free",
+        "via": "clawhub"
+      },
+      "path": "skills/knowledge/notes-sync-cli-free",
+      "source": "file"
+    },
     "knowledge/obsidian": {
       "description": "Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.",
       "domain": "knowledge",
